@@ -1,0 +1,249 @@
+{
+  "case_count": 48,
+  "cases": [
+    {
+      "case_id": "8b58d18b4d92535d",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0001.xml",
+      "sha256": "0d388bcd649cb703711b925726331e92e743b1bad90460840f6fa8f1f37280dc"
+    },
+    {
+      "case_id": "45916043ea9e53d9",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0002.xml",
+      "sha256": "2cf3006014b1580f0e9b188e856ebcf614873afe5571850be2ebd273750d7303"
+    },
+    {
+      "case_id": "7ca61675def05785",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0003.xml",
+      "sha256": "7d473be1a323c401436feef8be31b1b64c2b91fe246b86afa4a37a4f1e8f9737"
+    },
+    {
+      "case_id": "dd7b6b9c77565450",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0004.xml",
+      "sha256": "b3bc33c8900dfb8207bffc11f0e03b44eb999254fb76344fe6e2ac3cedb66309"
+    },
+    {
+      "case_id": "27a42bbf64945aef",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0005.xml",
+      "sha256": "bc5c2503eeb0105bf51720fd6244dcb0c5ebef9dec84df3458bcd5f99a2b2c77"
+    },
+    {
+      "case_id": "d108c9ee229f556c",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0006.xml",
+      "sha256": "13407f6607d4d0b190ae2df21db7026b5dafa30d05f63bae41c81ee8fb69df36"
+    },
+    {
+      "case_id": "88ae300b4b275e22",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0007.xml",
+      "sha256": "1037e4f1d7f73265440a16ac7fb582b0efccd9b170a3964de2b49a94ec1a84ac"
+    },
+    {
+      "case_id": "57033a00833f5c0a",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0008.xml",
+      "sha256": "874321eda17afc79b60100f2e9a5799e408371ef79c8693f0e4753e176482c73"
+    },
+    {
+      "case_id": "10508092324f57b4",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0009.xml",
+      "sha256": "9f011bd35238d0b53e02934b3a344fdd900646ba2fa7cb3be1fd918ee84c5abf"
+    },
+    {
+      "case_id": "66f1d1d6f3465bc4",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0010.xml",
+      "sha256": "8d30a7982085b77e243ce5fc5487fb1fc6b87cc006b9492d44dfb155144751e7"
+    },
+    {
+      "case_id": "08599cfa974d5297",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0011.xml",
+      "sha256": "58560b28dac2f2e4113240a9cf67ddc745bcc4a9091860246d686d51fd815a9f"
+    },
+    {
+      "case_id": "1cfcc4d1b79b56ee",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0012.xml",
+      "sha256": "cc0500c104869b303857b8ce0d14e19df415b7b793903262b0f67aedca437860"
+    },
+    {
+      "case_id": "ca8f622fee50523d",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0013.xml",
+      "sha256": "0227d8fad037344ab71738e8a2ae39d85a4a9a4293bfe5c31d912ca58f2a86b7"
+    },
+    {
+      "case_id": "f5ea36eb87cd58f0",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0014.xml",
+      "sha256": "40684ee0efb03357105b99e9d8a068b9396ea0f71bdf66b8b383dd7c06eef5a8"
+    },
+    {
+      "case_id": "eefa1d6593045537",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0015.xml",
+      "sha256": "58367341dffb1ec98516000f37627a2de5a9226917573060fda90876e91dec9c"
+    },
+    {
+      "case_id": "92f539333b7857ff",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0016.xml",
+      "sha256": "745dc8c7d48a1aa99fd0478e12577763d51da9f97d6c934d55cb8e3b7bad18c0"
+    },
+    {
+      "case_id": "7341eaa6332d5a5a",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0017.xml",
+      "sha256": "f47af898d515875d71ec5773a5490be01b94d20875abbf1b2159ec6793356fe0"
+    },
+    {
+      "case_id": "8322b44bb00c5a88",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0018.xml",
+      "sha256": "4a40af0b802573775c9f8bd3ffd3dbf242436911f541c30b81c6864533b23ed0"
+    },
+    {
+      "case_id": "e2b97ffd5dce54b7",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0019.xml",
+      "sha256": "aa1c58cdec8bb0f299972c84477ad45418dda8b1c263dc91e39b1d0088c1bfb2"
+    },
+    {
+      "case_id": "410ca58fbf25552a",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0020.xml",
+      "sha256": "cdceffbbcfbb76b4fe78c024a3c562f3c93695c6b9d0dff45c1348955ad71d66"
+    },
+    {
+      "case_id": "13920ff4fc2e5d59",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0021.xml",
+      "sha256": "e42adfbeb622b96d38591a299c2b17c245ef7221a61d8299acf373bde18b5009"
+    },
+    {
+      "case_id": "0072ddc989605c38",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0022.xml",
+      "sha256": "35de91e76064c7ab33459a1af8f95ec7afa6159730c21aa08c4456645592c4ba"
+    },
+    {
+      "case_id": "7c2391327b435c00",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0023.xml",
+      "sha256": "1e8004a4c6c2a4c9f05e36b663e8ab36b042adf3d0c164ba518d1d632dd60178"
+    },
+    {
+      "case_id": "4b1d0b3f28f35e0a",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0024.xml",
+      "sha256": "73629992b19d349c6d54897e0d643f6ec8fe4e37fc378bf2fa5b604dda425cb6"
+    },
+    {
+      "case_id": "5d67cd881b8250bd",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0025.xml",
+      "sha256": "ae599e3a8fd0ed1475dad8ea33edd6d7fe5c1bf32e4b0a225abd6dc8caf5d4ce"
+    },
+    {
+      "case_id": "57ec901a45e0583f",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0026.xml",
+      "sha256": "bd47a5b9e87d5f914bbc9dd9adaef8a16d820e67fcc7bcf5ac663d8fb4963783"
+    },
+    {
+      "case_id": "ec6f9b158e875455",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0027.xml",
+      "sha256": "0ceb9a4a683dbdc94469557ba55259c1e97d6eddf7d6dbc6f8ec4e4f1ede1ab2"
+    },
+    {
+      "case_id": "49ccfbcbbec05129",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0028.xml",
+      "sha256": "4f62982f6c95528dbf2640b4fbdd40355de0cec4d41adb8361718d87bcf1289f"
+    },
+    {
+      "case_id": "b57afa718f1d5414",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0029.xml",
+      "sha256": "303484fcf1a6e93955de9af41e297617d413721bc0d551c97435209aa660891a"
+    },
+    {
+      "case_id": "dfffce576bc15ad2",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0030.xml",
+      "sha256": "1cc632840aee521f62d0d2a5043cdcec52a04558c66f9c96443f547ad0cf8c8a"
+    },
+    {
+      "case_id": "66cc42c1505d5e89",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0031.xml",
+      "sha256": "5d6202667e9ebf52c513929dcceed59cf823ff028dfbfb0c47261f20e9d1223e"
+    },
+    {
+      "case_id": "b20bdf08c93a5d66",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0032.xml",
+      "sha256": "1401fd175a4e750e22c9d88c6935c1cb1d1024801352f9e7df02b9fa2cf54857"
+    },
+    {
+      "case_id": "3a1a6a2cba705752",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0033.xml",
+      "sha256": "bcf6abfe4a7ad62c90be35a9ca6f433eaeb150924bdebeac88cebc8f2b0b16d9"
+    },
+    {
+      "case_id": "33566e21e8a25be1",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0034.xml",
+      "sha256": "1249e8bc51d712a8a41f295cf26217487912d72b41cee360e10b718f4aee3eea"
+    },
+    {
+      "case_id": "dfd38f7be38a53ab",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0035.xml",
+      "sha256": "c494f9edd51d9f09144e3eb049efea7440304e3f9679b6342a5305e457d92b30"
+    },
+    {
+      "case_id": "fc8d6fddf69e5ffd",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0036.xml",
+      "sha256": "01b474c2eea38f6afb69ae883118e5c556263202282063396b1d57e3ff7ffdba"
+    },
+    {
+      "case_id": "4d4ee00c21125cc5",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0037.xml",
+      "sha256": "909a852dd2f210e82f8c3adf6d46247ddc449294b523491d117441fc6c0eed56"
+    },
+    {
+      "case_id": "852998de69cc5a5f",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0038.xml",
+      "sha256": "77d3242a913dad986f5327e694a29c67943980f7003b80106a27b05af1fafaeb"
+    },
+    {
+      "case_id": "4d668bce8e1b5662",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0039.xml",
+      "sha256": "49251632e265c1da38aecdd780a36d70ab4d07777455dab1f6b071eaaa2023de"
+    },
+    {
+      "case_id": "d839c55a892255a8",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0040.xml",
+      "sha256": "9cbf2ad5a5ab46df6a95a05975ea53c4698f9e7bd1994c6d417fdee258700b2b"
+    },
+    {
+      "case_id": "0b3d9d68d52458be",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0041.xml",
+      "sha256": "c77a9df7222d2be23582eccb3fb33e7715407191e8918fa5baf328b862e30b0f"
+    },
+    {
+      "case_id": "56de93c575d3548c",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0042.xml",
+      "sha256": "fbde35dc42680ee9d887f1dfd09ac3013c00c1df7b534104af69177d8b4cf290"
+    },
+    {
+      "case_id": "ffe40682a3e55720",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0043.xml",
+      "sha256": "9b81ead90154186c35ea31fe699b09fdfbe98f5e221d6640da54175e9634a093"
+    },
+    {
+      "case_id": "055b776799a5595f",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0044.xml",
+      "sha256": "a5d7405e4ea8b9276dffc4dae18bf2705a654aa8387f6054870fffb17bfbde61"
+    },
+    {
+      "case_id": "3ab6a417d43658a8",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0045.xml",
+      "sha256": "f7df5b6715da26284d2f74413d6173b5e5817addb9e0d448412558c72b4c9e13"
+    },
+    {
+      "case_id": "434540d21ab35600",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0046.xml",
+      "sha256": "e1c40af28c57bf32b5b4f8c64840bbe2cfd54ef89cc8988a6151d858e4ad0eb0"
+    },
+    {
+      "case_id": "40aa855e235856b7",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0047.xml",
+      "sha256": "8e8d111d4a096c7ea554bc329b440fc691e4ed6d714e5fbdfc81123a0d9a865d"
+    },
+    {
+      "case_id": "26217a10c2035ed8",
+      "invoice_file": "synthetic/v1/development/invoices/invoice_0048.xml",
+      "sha256": "c4ac49408655de07a6a94a1303d47ef7512ff386dcff563a76c775db8fe7e37d"
+    }
+  ],
+  "dataset_version": "1.0.0",
+  "generator_version": "1.0.0",
+  "seed": 2026090611,
+  "split": "development"
+}

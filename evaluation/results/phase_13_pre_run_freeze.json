@@ -1,0 +1,301 @@
+{
+  "freeze_schema_version": "1.0.0",
+  "created_before_final_inference": true,
+  "file_count": 57,
+  "aggregate_sha256": "c55f7c1e491152a5ef3e1aa43bad82c65ca23c2ac49791f2c9daea875ecc9b5c",
+  "files": [
+    {
+      "path": "data/synthetic/v1/final_test_seal.json",
+      "size_bytes": 781,
+      "sha256": "62a58fb6422ea6938b347d4ab483407dea7afc372596698c9766001fb0b0e12f"
+    },
+    {
+      "path": "evaluation/__init__.py",
+      "size_bytes": 204,
+      "sha256": "ece8e5de8015a3f7a8c591263767eac65cd9ff9d5c4528429a169ba3f662f383"
+    },
+    {
+      "path": "evaluation/final_evaluation.py",
+      "size_bytes": 7891,
+      "sha256": "6118526b016396291caa54771255002823b020e3066fbae080b7df52044566c7"
+    },
+    {
+      "path": "evaluation/metrics.py",
+      "size_bytes": 1227,
+      "sha256": "cb70fa755df8df2bfca661b858c5fbc4ccd60cc35f8919d60ec861369fe3dada"
+    },
+    {
+      "path": "evaluation/pipeline.py",
+      "size_bytes": 20915,
+      "sha256": "f6d97a18b9a68874cad79e76763fc5aa8c89e9c793a1dce6581eb2aa7870ea94"
+    },
+    {
+      "path": "evaluation/results/phase_12_development_validation.json",
+      "size_bytes": 12468,
+      "sha256": "82b8985d1213ede0e26f549bb0f53a1b4c0c1eda0d0cba2750fb863daff3ea88"
+    },
+    {
+      "path": "kb/index/retrieval_aliases.yaml",
+      "size_bytes": 1809,
+      "sha256": "3ade62602471fbc95af43de94dc97c84cc569818d884a515cafbec0f82b3c6d6"
+    },
+    {
+      "path": "kb/index/retrieval_corpus.jsonl",
+      "size_bytes": 18476,
+      "sha256": "74e18af2db99696cc81246ad977fc1cddcd7c5a35ec7ba18907714d8015fba57"
+    },
+    {
+      "path": "kb/index/rule_index.json",
+      "size_bytes": 651,
+      "sha256": "b3c5138dbbfc1776bdb1272d129c83e647d87e63714a2e99def2e4ce16a8a1a7"
+    },
+    {
+      "path": "kb/rules/unverified_and_deferred.yaml",
+      "size_bytes": 1948,
+      "sha256": "8fb00fdfa602191d1bf0c844eebd5772cebdab52d690ecb368bb37af97943a2d"
+    },
+    {
+      "path": "kb/rules/verified_mvp_rules.yaml",
+      "size_bytes": 10519,
+      "sha256": "6b62e0c544961ef0e47a6e9581cb00a83218a46e653c597fd39280d4fadf6be1"
+    },
+    {
+      "path": "kb/schema/rule.schema.json",
+      "size_bytes": 1739,
+      "sha256": "fb0252600b93e4964990b8523bdb520c124550a195e32d865e8ad44c4762f61a"
+    },
+    {
+      "path": "requirements-llm.txt",
+      "size_bytes": 50,
+      "sha256": "012f4af5355e9da070a29c91d58a947024a223accdbfff3c380307a7df6072eb"
+    },
+    {
+      "path": "requirements.txt",
+      "size_bytes": 28,
+      "sha256": "f4475b741b51b01316b17724ed87a96af52bdb9459e4d2342b5d3f0be5857b6d"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/CCTS_CCT_SchemaModule-2.1.xsd",
+      "size_bytes": 45268,
+      "sha256": "dd546e4809df86b6445589f69f0d6c9df162840ae386574ddfc1da7638103e15"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-CommonAggregateComponents-2.1.xsd",
+      "size_bytes": 2420444,
+      "sha256": "939172ad8dd057cd403e7f763f6532184dd5ed4b9de24c42ebb35db4792ba613"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-CommonBasicComponents-2.1.xsd",
+      "size_bytes": 219895,
+      "sha256": "bd4ad043ee1d9da1c7f8018dabf739cfafdfb59143d0d16b9ef769e6b7c408a7"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-CommonExtensionComponents-2.1.xsd",
+      "size_bytes": 9491,
+      "sha256": "ad7a4e490978adfbcfc5ec0bb20941cf11ac960ccf0c4de8791a7c731a8dbe87"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-CommonSignatureComponents-2.1.xsd",
+      "size_bytes": 5548,
+      "sha256": "3db472305f029bba5c1ae157bfd0178f715c3f9b94bd8e6c557dbce5e88da874"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-CoreComponentParameters-2.1.xsd",
+      "size_bytes": 3173,
+      "sha256": "8be3379dbdcbcc7802fafdd16bac72c48fff1c0bb364213a31a17911dd06100b"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-ExtensionContentDataType-2.1.xsd",
+      "size_bytes": 4314,
+      "sha256": "fcee77a11870208e6377ea6311b9f2a050bca24bdad8606ea02d71e9f9e72f8d"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-QualifiedDataTypes-2.1.xsd",
+      "size_bytes": 3590,
+      "sha256": "7dcb156e610239c97ae70940cf4653b88e48c3595bf5f56a2204a32e2893e6cf"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-SignatureAggregateComponents-2.1.xsd",
+      "size_bytes": 7784,
+      "sha256": "17bb6b62d709b4fd81449a37655af36aa6a1276ad4fdb1b2e249a5ed4b7c2172"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-SignatureBasicComponents-2.1.xsd",
+      "size_bytes": 4207,
+      "sha256": "cef924d7ba3d1d8ade14469325cde1364f8c174e46f0198ec02da8e9e748a489"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-UnqualifiedDataTypes-2.1.xsd",
+      "size_bytes": 27300,
+      "sha256": "09052d406b4293e2a5f9c2bfee6df10ad4d8d5f0b36e24a6349d7f7936d89eb6"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-XAdESv132-2.1.xsd",
+      "size_bytes": 21664,
+      "sha256": "a4f726bcf8cc3f7d9ffa4dab99e005535a8e8b60dced1e5d94578d2e05afa96e"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-XAdESv141-2.1.xsd",
+      "size_bytes": 1316,
+      "sha256": "1fa4625e9cefcb7a9abb5ac1b64315547450031eece8a55bd584e4ba4b79dbc1"
+    },
+    {
+      "path": "resources/ubl21/xsd/common/UBL-xmldsig-core-schema-2.1.xsd",
+      "size_bytes": 10750,
+      "sha256": "101909c9f06456d61ddcc4fb982f1d40dc357b439f393b1a2eb46e42acd60809"
+    },
+    {
+      "path": "resources/ubl21/xsd/maindoc/UBL-Invoice-2.1.xsd",
+      "size_bytes": 60178,
+      "sha256": "40fae8cb436f3a9506d7acce65ba162caef3b0bed4d5cbc0992b2153ded4edf4"
+    },
+    {
+      "path": "scripts/run_agent.py",
+      "size_bytes": 1474,
+      "sha256": "409751efa968674c33f7f201a39a8b8b70773fb4196d0b011406641addadea55"
+    },
+    {
+      "path": "scripts/run_correction.py",
+      "size_bytes": 1450,
+      "sha256": "52083d2fae659f917dc1e8e0bee6bcbb238c611a278cf7da7886269ed03d53d8"
+    },
+    {
+      "path": "scripts/run_evaluation.py",
+      "size_bytes": 1369,
+      "sha256": "26566812879e6837f41016210c1e648b6efe6e5198f53aa71cc207dbb0853185"
+    },
+    {
+      "path": "scripts/run_final_evaluation.py",
+      "size_bytes": 1079,
+      "sha256": "5000165e6995feb79b5d7a63e5d5829fe9aea714ab7bc69849b80f0275303caf"
+    },
+    {
+      "path": "src/__init__.py",
+      "size_bytes": 47,
+      "sha256": "e755aa3c414dd18cd5dba45529b298d6978f389607b63a57d5cc48b213543ef5"
+    },
+    {
+      "path": "src/agent/__init__.py",
+      "size_bytes": 832,
+      "sha256": "b9350d4b40507caebce233f4346019819762641ad090b2c851f7a617104af385"
+    },
+    {
+      "path": "src/agent/explainers.py",
+      "size_bytes": 5700,
+      "sha256": "8581473b0f274fd5224f1bbd234d7010fa80b88f242144a77bc31b2f25742bed"
+    },
+    {
+      "path": "src/agent/models.py",
+      "size_bytes": 2390,
+      "sha256": "869afd223cbf1f1caa086906fbd3c35244cfe5df60d8f2c1b6be33dc27d9b089"
+    },
+    {
+      "path": "src/agent/openai_provider.py",
+      "size_bytes": 2466,
+      "sha256": "c6dadcfacf87f313843f7b7277600d1f339a52b590cca74d09cbe08823fd5a2d"
+    },
+    {
+      "path": "src/agent/orchestrator.py",
+      "size_bytes": 6830,
+      "sha256": "400054a7e8d68f74e8b13fbab007ab15d304e260193c14d39793915e59d90d29"
+    },
+    {
+      "path": "src/corrections/__init__.py",
+      "size_bytes": 475,
+      "sha256": "f155e2f311846338513a9fb117edd7aa19a8ece5172ac65bea205e77b7fa6184"
+    },
+    {
+      "path": "src/corrections/engine.py",
+      "size_bytes": 13264,
+      "sha256": "b84c6349485f1da393b467cb21a2deff10e56930a8afc6619d51ffae995cc5ce"
+    },
+    {
+      "path": "src/corrections/models.py",
+      "size_bytes": 1015,
+      "sha256": "c8bb6a2a68615b911b7016784f51cd3b3804d0b1ef7bcd9b7aff9606b6b01258"
+    },
+    {
+      "path": "src/models/__init__.py",
+      "size_bytes": 299,
+      "sha256": "3ce08786e951a8764fe81fd2b16ff06cb99278caf87eb3362afb6fe96e4070b4"
+    },
+    {
+      "path": "src/models/invoice_types.py",
+      "size_bytes": 2489,
+      "sha256": "b90b8d970f9ae48abc4f6c600d4c7bffdfaf689cfe790e1bcc0e5ef9d43d631a"
+    },
+    {
+      "path": "src/parsers/__init__.py",
+      "size_bytes": 126,
+      "sha256": "86546c8a587f83726abca78bf98b9bff09632b12cbe8b24fafbd1ddc7bd2669c"
+    },
+    {
+      "path": "src/parsers/ubl_invoice.py",
+      "size_bytes": 5921,
+      "sha256": "ecc2478ce66e4d29df9532946f87604cbc723849d0bd3ad00383d5bcc16f6f77"
+    },
+    {
+      "path": "src/rag/__init__.py",
+      "size_bytes": 448,
+      "sha256": "674693b0ce3608733d2e20ab65f3aa57e0d41ff515f284ee3fd5a048bf53348a"
+    },
+    {
+      "path": "src/rag/context.py",
+      "size_bytes": 1912,
+      "sha256": "b3cd294276619225963db5226437b85b767e1291c498ecdf8d801687976a9289"
+    },
+    {
+      "path": "src/rag/models.py",
+      "size_bytes": 1993,
+      "sha256": "cd427da456c6b50c70b2c5535a324dd6368848dc4f31677845746e5ee0ad4467"
+    },
+    {
+      "path": "src/rag/retriever.py",
+      "size_bytes": 7219,
+      "sha256": "016891c6a6c67c0e4d2b239bfc0bcb7b97d2acb2c32dd85ef8cf8795172160b5"
+    },
+    {
+      "path": "src/tools/__init__.py",
+      "size_bytes": 275,
+      "sha256": "0d4ee039d641ff7b8b1ed68c85b45098bf2dde2a16ce24938a8628cddfee2d3a"
+    },
+    {
+      "path": "src/tools/compliance.py",
+      "size_bytes": 5653,
+      "sha256": "61df0484bfd4ef4620c9bec6240c46d5db4b621ca5d433fdf85962ac9a6f2a99"
+    },
+    {
+      "path": "src/tools/registry.py",
+      "size_bytes": 2431,
+      "sha256": "cbd430bee00481aa1b5effe605f4ee304b32dc23e601fb016aa9bb484dc6e0df"
+    },
+    {
+      "path": "src/validators/__init__.py",
+      "size_bytes": 237,
+      "sha256": "b86d66d69c617a23a557d20abb2af2d63b9b734c235027ceb999cde9d01a4b11"
+    },
+    {
+      "path": "src/validators/checks.py",
+      "size_bytes": 11641,
+      "sha256": "e125fbe747add49426404b44c332a582b08bf36bccc3bf9e6e0fe0d3c5227624"
+    },
+    {
+      "path": "src/validators/orchestrator.py",
+      "size_bytes": 1641,
+      "sha256": "19e5bfa4baad8af81c09d7ff2b688d1a52f7dbed5d389a1632b4a8d802e9ddc5"
+    },
+    {
+      "path": "src/validators/result.py",
+      "size_bytes": 654,
+      "sha256": "cd425c3bedfc7720eb7ffcf186cc604a2c1609995c3ffe844e8478d48a977ebd"
+    }
+  ],
+  "final_dataset_verification": {
+    "dataset_version": "1.0.0",
+    "case_count": 32,
+    "seal_file": "/workspace/scratch/17c31a01a757/zatca-compliance-agent/data/synthetic/v1/final_test_seal.json",
+    "seal_sha256": "62a58fb6422ea6938b347d4ab483407dea7afc372596698c9766001fb0b0e12f",
+    "control_files_verified": 4,
+    "invoice_files_verified": 32
+  }
+}

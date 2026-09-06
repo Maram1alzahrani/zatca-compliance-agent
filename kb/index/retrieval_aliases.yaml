@@ -1,0 +1,28 @@
+schema_version: "1.0.0"
+authority: "INTERNAL_RETRIEVAL_ONLY"
+note: "Search aliases only. They do not define, extend, or override ZATCA requirements."
+aliases:
+  MVP-XML-001:
+    - "xml ubl xsd schema syntax malformed invalid document element sequence"
+    - "بنية xml مخطط ubl ملف غير صالح وسم غير مغلق ترتيب العناصر"
+  MVP-ID-001:
+    - "invoice number invoice identifier document id BT-1"
+    - "رقم الفاتورة معرف الفاتورة رقم المستند مفقود"
+  MVP-DATE-001:
+    - "invoice issue date calendar future date YYYY-MM-DD BT-2"
+    - "تاريخ إصدار الفاتورة صيغة التاريخ تاريخ مستقبلي"
+  MVP-TYPE-001:
+    - "invoice type code subtype transaction code 388 0100000 BT-3 KSA-2"
+    - "نوع الفاتورة كود الفاتورة رمز المعاملة فاتورة ضريبية مبسطة"
+  MVP-SELLER-001:
+    - "seller supplier name VAT tax registration number 15 digits BT-27 BT-31"
+    - "اسم البائع المورد الرقم الضريبي للبائع تسجيل ضريبة القيمة المضافة"
+  MVP-BUYER-001:
+    - "buyer customer name registration name BT-44"
+    - "اسم المشتري العميل بيانات المشتري مفقود"
+  MVP-LINE-001:
+    - "invoice line net amount quantity price base allowance charge line sum BT-106 BT-131"
+    - "صافي سطر الفاتورة الكمية السعر إجمالي السطور خصم رسوم"
+  MVP-VAT-TOTAL-001:
+    - "VAT tax taxable amount rate inclusive exclusive totals rounding BT-109 BT-110 BT-112 BT-116 BT-117 BT-119"
+    - "ضريبة القيمة المضافة مبلغ الضريبة المبلغ الخاضع الإجمالي شامل الضريبة قبل الضريبة التقريب"

@@ -1,0 +1,12 @@
+{"after": null, "before": null, "case_id": "C0001", "injection_applied": false, "operator": null, "seed": 20260906, "target_field": null}
+{"after": null, "before": "</Invoice>", "case_id": "C0002", "injection_applied": true, "operator": "truncate_closing_tag", "seed": 20260906, "target_field": "raw_xml"}
+{"after": null, "before": "SYN-20260003", "case_id": "C0003", "injection_applied": true, "operator": "remove_element", "seed": 20260906, "target_field": "invoice_number"}
+{"after": "01/09/2026", "before": "2026-09-01", "case_id": "C0004", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "issue_date"}
+{"after": "999", "before": "388", "case_id": "C0005", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "invoice_type_code"}
+{"after": null, "before": "Synthetic Seller LLC", "case_id": "C0006", "injection_applied": true, "operator": "remove_element", "seed": 20260906, "target_field": "seller.name"}
+{"after": "110000000000002", "before": "310000000000003", "case_id": "C0007", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "seller.vat_number"}
+{"after": null, "before": "Synthetic Buyer LLC", "case_id": "C0008", "injection_applied": true, "operator": "remove_element", "seed": 20260906, "target_field": "buyer.name"}
+{"after": "90.00", "before": "100.00", "case_id": "C0009", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "lines[0].net_amount"}
+{"after": "130.00", "before": "140.00", "case_id": "C0010", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "totals.line_extension_amount"}
+{"after": "20.00", "before": "21.00", "case_id": "C0011", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "vat_breakdowns[0].tax_amount"}
+{"after": "160.00", "before": "161.00", "case_id": "C0012", "injection_applied": true, "operator": "replace_text", "seed": 20260906, "target_field": "totals.tax_inclusive_amount"}

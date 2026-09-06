@@ -1,0 +1,69 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "C0001",
+      "invoice_file": "synthetic/dev/invoices/inv_0001.xml",
+      "sha256": "74c0952e435338ce2336190fa7288f1ef8b5dfac13fa304a6a1c963e5daacf87"
+    },
+    {
+      "case_id": "C0002",
+      "invoice_file": "synthetic/dev/invoices/inv_0002.xml",
+      "sha256": "b81b4c258f026cee8209c3443288d9bd891131ab8ce89596b2077bc353b562d3"
+    },
+    {
+      "case_id": "C0003",
+      "invoice_file": "synthetic/dev/invoices/inv_0003.xml",
+      "sha256": "9d726dd8657847c5cd89eb540362455dfcf1c489a6948cc5c048d623bc1e4161"
+    },
+    {
+      "case_id": "C0004",
+      "invoice_file": "synthetic/dev/invoices/inv_0004.xml",
+      "sha256": "c43e5e1ab0b90fc11b87ad67a62035b5848fea1013406125698feb4b1618ebfc"
+    },
+    {
+      "case_id": "C0005",
+      "invoice_file": "synthetic/dev/invoices/inv_0005.xml",
+      "sha256": "a5ea5b4461e8b3408466d1f6266756f45c02ac258630016b07859b31408215da"
+    },
+    {
+      "case_id": "C0006",
+      "invoice_file": "synthetic/dev/invoices/inv_0006.xml",
+      "sha256": "0d184789b7238d86ea3a210ee420c307e12b081bc02eff33d98e6fcc728da111"
+    },
+    {
+      "case_id": "C0007",
+      "invoice_file": "synthetic/dev/invoices/inv_0007.xml",
+      "sha256": "b0656021e389190752767b12216bacb821a35ec88ba25cb440ac912292345f6c"
+    },
+    {
+      "case_id": "C0008",
+      "invoice_file": "synthetic/dev/invoices/inv_0008.xml",
+      "sha256": "ce97958f54c38ecd083d29b3d68f68c7b1b89c388fb79db531e04d8aabe1f761"
+    },
+    {
+      "case_id": "C0009",
+      "invoice_file": "synthetic/dev/invoices/inv_0009.xml",
+      "sha256": "3e45e97cd0374635f4c84c8db3744217e9d3e68c39a7794e6bcd1fa5d90c98d7"
+    },
+    {
+      "case_id": "C0010",
+      "invoice_file": "synthetic/dev/invoices/inv_0010.xml",
+      "sha256": "05133fd82b423fb6562f6a1f0be970520dc251a88ccb98ea286269ef67c5c5ac"
+    },
+    {
+      "case_id": "C0011",
+      "invoice_file": "synthetic/dev/invoices/inv_0011.xml",
+      "sha256": "24fb1b88ac585f40548ea466e7dcf704077ce05ac12f78278e9755bf059d0003"
+    },
+    {
+      "case_id": "C0012",
+      "invoice_file": "synthetic/dev/invoices/inv_0012.xml",
+      "sha256": "8d9314fde4187a979160a7286c35b6520db3d3319ea32767eec5c1359758b8bb"
+    }
+  ],
+  "dataset_version": "0.1.0",
+  "generator_version": "0.1.0",
+  "seed": 20260906,
+  "split": "development"
+}

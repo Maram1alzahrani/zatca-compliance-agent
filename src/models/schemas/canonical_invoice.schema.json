@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/zatca-compliance-agent/canonical_invoice.schema.json",
+  "title": "Canonical Invoice Candidate",
+  "description": "A compliance-neutral normalized representation. Missing and invalid business values remain representable for deterministic evaluation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "lines", "vat_breakdowns"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "invoice_number": { "$ref": "#/$defs/nullableText" },
+    "uuid": { "$ref": "#/$defs/nullableText" },
+    "issue_date": { "$ref": "#/$defs/nullableText" },
+    "issue_time": { "$ref": "#/$defs/nullableText" },
+    "invoice_type_code": { "$ref": "#/$defs/nullableText" },
+    "transaction_code": { "$ref": "#/$defs/nullableText" },
+    "document_currency_code": { "$ref": "#/$defs/nullableText" },
+    "tax_currency_code": { "$ref": "#/$defs/nullableText" },
+    "seller": {
+      "oneOf": [{ "$ref": "#/$defs/party" }, { "type": "null" }],
+      "default": null
+    },
+    "buyer": {
+      "oneOf": [{ "$ref": "#/$defs/party" }, { "type": "null" }],
+      "default": null
+    },
+    "lines": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/invoiceLine" },
+      "default": []
+    },
+    "vat_breakdowns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/vatBreakdown" },
+      "default": []
+    },
+    "totals": {
+      "oneOf": [{ "$ref": "#/$defs/totals" }, { "type": "null" }],
+      "default": null
+    }
+  },
+  "$defs": {
+    "nullableText": {
+      "type": ["string", "null"]
+    },
+    "nullableDecimalText": {
+      "description": "XML decimal preserved as text; converted to decimal.Decimal only by deterministic calculation code.",
+      "type": ["string", "null"],
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$"
+    },
+    "party": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/nullableText" },
+        "vat_number": { "$ref": "#/$defs/nullableText" }
+      }
+    },
+    "invoiceLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "line_id": { "$ref": "#/$defs/nullableText" },
+        "quantity": { "$ref": "#/$defs/nullableDecimalText" },
+        "unit_code": { "$ref": "#/$defs/nullableText" },
+        "item_name": { "$ref": "#/$defs/nullableText" },
+        "net_price": { "$ref": "#/$defs/nullableDecimalText" },
+        "price_base_quantity": { "$ref": "#/$defs/nullableDecimalText" },
+        "allowance_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "charge_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "net_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "vat_category_code": { "$ref": "#/$defs/nullableText" },
+        "vat_rate": { "$ref": "#/$defs/nullableDecimalText" },
+        "vat_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "amount_with_vat": { "$ref": "#/$defs/nullableDecimalText" }
+      }
+    },
+    "vatBreakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category_code": { "$ref": "#/$defs/nullableText" },
+        "rate": { "$ref": "#/$defs/nullableDecimalText" },
+        "taxable_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "tax_amount": { "$ref": "#/$defs/nullableDecimalText" }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "line_extension_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "allowance_total_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "charge_total_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "tax_exclusive_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "tax_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "tax_inclusive_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "prepaid_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "payable_rounding_amount": { "$ref": "#/$defs/nullableDecimalText" },
+        "payable_amount": { "$ref": "#/$defs/nullableDecimalText" }
+      }
+    }
+  }
+}
+

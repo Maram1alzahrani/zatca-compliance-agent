@@ -1,0 +1,23 @@
+{
+  "dataset_version": "1.0.0",
+  "files": {
+    "error_injections": {
+      "path": "synthetic/v1/error_injections/final_test.jsonl",
+      "sha256": "ff5366b09cee0a24b0c4c31ead912197c2943b6a348f13edc1c4053b6ba7e4cb"
+    },
+    "ground_truth": {
+      "path": "ground_truth/v1/final_test.jsonl",
+      "sha256": "4cde704c432849eae26fac0539d31267fd7ce27795cdae36a4de307dd884bdd7"
+    },
+    "manifest": {
+      "path": "synthetic/v1/manifests/final_test.json",
+      "sha256": "4e4bb70f15b38cb4717a349e70e021c27c0f1f9500bd09ccb9ac19c1e6babff8"
+    },
+    "metadata": {
+      "path": "synthetic/v1/metadata/final_test.jsonl",
+      "sha256": "7fca0d24c5e35f46225b0df4fd76b45de812efd0e5f06598860b0a9493718b83"
+    }
+  },
+  "sealed_before_evaluation": true,
+  "split": "final_test"
+}

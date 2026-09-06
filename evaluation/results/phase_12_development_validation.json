@@ -1,0 +1,493 @@
+{
+  "evaluation_schema_version": "1.0.0",
+  "phase": 12,
+  "evaluation_date": "2026-09-06",
+  "allowed_splits": [
+    "development",
+    "validation"
+  ],
+  "evaluated_splits": [
+    "development",
+    "validation"
+  ],
+  "final_test_accessed": false,
+  "agent_input_contract": [
+    "invoice_path",
+    "validation_date"
+  ],
+  "ground_truth_loaded_after_split_inference": true,
+  "llm_provider": null,
+  "split_results": {
+    "development": {
+      "case_count": 48,
+      "error_detection": {
+        "micro": {
+          "tp": 87,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "macro_f1": 1.0,
+        "exact_rule_set_accuracy": 1.0,
+        "per_rule": {
+          "MVP-XML-001": {
+            "tp": 13,
+            "fp": 0,
+            "fn": 0,
+            "tn": 35,
+            "support_positive": 13,
+            "support_negative": 35,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-ID-001": {
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "tn": 42,
+            "support_positive": 6,
+            "support_negative": 42,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-DATE-001": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "tn": 40,
+            "support_positive": 8,
+            "support_negative": 40,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-TYPE-001": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "tn": 40,
+            "support_positive": 8,
+            "support_negative": 40,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-SELLER-001": {
+            "tp": 13,
+            "fp": 0,
+            "fn": 0,
+            "tn": 35,
+            "support_positive": 13,
+            "support_negative": 35,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-BUYER-001": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "tn": 41,
+            "support_positive": 7,
+            "support_negative": 41,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-LINE-001": {
+            "tp": 13,
+            "fp": 0,
+            "fn": 0,
+            "tn": 35,
+            "support_positive": 13,
+            "support_negative": 35,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-VAT-TOTAL-001": {
+            "tp": 19,
+            "fp": 0,
+            "fn": 0,
+            "tn": 29,
+            "support_positive": 19,
+            "support_negative": 29,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "case_classification_confusion_matrix": {
+          "positive_class": "COMPLIANT",
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 40
+        }
+      },
+      "rule_retrieval": {
+        "predicted_issues_evaluated": 87,
+        "correct": 87,
+        "accuracy": 1.0
+      },
+      "explanation_grounding": {
+        "predicted_issues_evaluated": 87,
+        "structurally_grounded": 87,
+        "grounded_rate": 1.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate": 0.0,
+        "metric_scope": "Automated evidence-contract check; not human semantic adjudication."
+      },
+      "correction": {
+        "eligibility_confusion": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 39,
+          "support_positive": 9,
+          "support_negative": 39,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "approved_attempts": 9,
+        "successful_corrections": 9,
+        "correction_success_rate": 1.0,
+        "revalidation_pass_rate": 1.0,
+        "original_integrity_rate": 1.0
+      },
+      "agent_reliability": {
+        "cases": 48,
+        "tool_selection_successes": 48,
+        "tool_selection_success_rate": 1.0,
+        "tool_calls": 215,
+        "failed_tool_calls": 0,
+        "invalid_tool_calls": 0
+      },
+      "error_breakdown": {
+        "counts": {},
+        "records": []
+      }
+    },
+    "validation": {
+      "case_count": 32,
+      "error_detection": {
+        "micro": {
+          "tp": 52,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "macro_f1": 1.0,
+        "exact_rule_set_accuracy": 1.0,
+        "per_rule": {
+          "MVP-XML-001": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "tn": 24,
+            "support_positive": 8,
+            "support_negative": 24,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-ID-001": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "tn": 29,
+            "support_positive": 3,
+            "support_negative": 29,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-DATE-001": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "tn": 27,
+            "support_positive": 5,
+            "support_negative": 27,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-TYPE-001": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "tn": 27,
+            "support_positive": 5,
+            "support_negative": 27,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-SELLER-001": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "tn": 25,
+            "support_positive": 7,
+            "support_negative": 25,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-BUYER-001": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "tn": 28,
+            "support_positive": 4,
+            "support_negative": 28,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-LINE-001": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "tn": 24,
+            "support_positive": 8,
+            "support_negative": 24,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "MVP-VAT-TOTAL-001": {
+            "tp": 12,
+            "fp": 0,
+            "fn": 0,
+            "tn": 20,
+            "support_positive": 12,
+            "support_negative": 20,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "case_classification_confusion_matrix": {
+          "positive_class": "COMPLIANT",
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 27
+        }
+      },
+      "rule_retrieval": {
+        "predicted_issues_evaluated": 52,
+        "correct": 52,
+        "accuracy": 1.0
+      },
+      "explanation_grounding": {
+        "predicted_issues_evaluated": 52,
+        "structurally_grounded": 52,
+        "grounded_rate": 1.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate": 0.0,
+        "metric_scope": "Automated evidence-contract check; not human semantic adjudication."
+      },
+      "correction": {
+        "eligibility_confusion": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 25,
+          "support_positive": 7,
+          "support_negative": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "approved_attempts": 7,
+        "successful_corrections": 7,
+        "correction_success_rate": 1.0,
+        "revalidation_pass_rate": 1.0,
+        "original_integrity_rate": 1.0
+      },
+      "agent_reliability": {
+        "cases": 32,
+        "tool_selection_successes": 32,
+        "tool_selection_success_rate": 1.0,
+        "tool_calls": 138,
+        "failed_tool_calls": 0,
+        "invalid_tool_calls": 0
+      },
+      "error_breakdown": {
+        "counts": {},
+        "records": []
+      }
+    }
+  },
+  "aggregate": {
+    "case_count": 80,
+    "error_detection": {
+      "micro": {
+        "tp": 139,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "macro_f1": 1.0,
+      "exact_rule_set_accuracy": 1.0,
+      "per_rule": {
+        "MVP-XML-001": {
+          "tp": 21,
+          "fp": 0,
+          "fn": 0,
+          "tn": 59,
+          "support_positive": 21,
+          "support_negative": 59,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-ID-001": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 71,
+          "support_positive": 9,
+          "support_negative": 71,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-DATE-001": {
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "tn": 67,
+          "support_positive": 13,
+          "support_negative": 67,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-TYPE-001": {
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "tn": 67,
+          "support_positive": 13,
+          "support_negative": 67,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-SELLER-001": {
+          "tp": 20,
+          "fp": 0,
+          "fn": 0,
+          "tn": 60,
+          "support_positive": 20,
+          "support_negative": 60,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-BUYER-001": {
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "tn": 69,
+          "support_positive": 11,
+          "support_negative": 69,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-LINE-001": {
+          "tp": 21,
+          "fp": 0,
+          "fn": 0,
+          "tn": 59,
+          "support_positive": 21,
+          "support_negative": 59,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MVP-VAT-TOTAL-001": {
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 49,
+          "support_positive": 31,
+          "support_negative": 49,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "case_classification_confusion_matrix": {
+        "positive_class": "COMPLIANT",
+        "tp": 13,
+        "fp": 0,
+        "fn": 0,
+        "tn": 67
+      }
+    },
+    "rule_retrieval": {
+      "predicted_issues_evaluated": 139,
+      "correct": 139,
+      "accuracy": 1.0
+    },
+    "explanation_grounding": {
+      "predicted_issues_evaluated": 139,
+      "structurally_grounded": 139,
+      "grounded_rate": 1.0,
+      "unsupported_claim_count": 0,
+      "unsupported_claim_rate": 0.0,
+      "metric_scope": "Automated evidence-contract check; not human semantic adjudication."
+    },
+    "correction": {
+      "eligibility_confusion": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "tn": 64,
+        "support_positive": 16,
+        "support_negative": 64,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "approved_attempts": 16,
+      "successful_corrections": 16,
+      "correction_success_rate": 1.0,
+      "revalidation_pass_rate": 1.0,
+      "original_integrity_rate": 1.0
+    },
+    "agent_reliability": {
+      "cases": 80,
+      "tool_selection_successes": 80,
+      "tool_selection_success_rate": 1.0,
+      "tool_calls": 353,
+      "failed_tool_calls": 0,
+      "invalid_tool_calls": 0
+    },
+    "error_breakdown": {
+      "counts": {},
+      "records": []
+    }
+  },
+  "limitations": [
+    "Development and Validation are engineering evaluation sets, not the final unseen test.",
+    "Grounding is checked against a strict evidence contract, not by human semantic review.",
+    "No live LLM provider is used; LLM-specific hallucination behavior is not measured here.",
+    "Metrics cover only the eight selected rules and the frozen invoice profile."
+  ]
+}

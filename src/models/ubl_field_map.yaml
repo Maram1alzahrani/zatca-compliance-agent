@@ -1,0 +1,123 @@
+mapping_version: "1.0.0"
+profile: "Standard Tax Invoice candidate"
+namespaces:
+  ubl: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+  cac: "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+  cbc: "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+
+fields:
+  invoice_number:
+    business_term: "BT-1"
+    xpath: "/ubl:Invoice/cbc:ID"
+  uuid:
+    business_term: "KSA-1"
+    xpath: "/ubl:Invoice/cbc:UUID"
+  issue_date:
+    business_term: "BT-2"
+    xpath: "/ubl:Invoice/cbc:IssueDate"
+  issue_time:
+    business_term: "KSA-25"
+    xpath: "/ubl:Invoice/cbc:IssueTime"
+  invoice_type_code:
+    business_term: "BT-3"
+    xpath: "/ubl:Invoice/cbc:InvoiceTypeCode/text()"
+  transaction_code:
+    business_term: "KSA-2"
+    xpath: "/ubl:Invoice/cbc:InvoiceTypeCode/@name"
+  document_currency_code:
+    business_term: "BT-5"
+    xpath: "/ubl:Invoice/cbc:DocumentCurrencyCode"
+  tax_currency_code:
+    business_term: "BT-6"
+    xpath: "/ubl:Invoice/cbc:TaxCurrencyCode"
+  seller.name:
+    business_term: "BT-27"
+    xpath: "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"
+  seller.vat_number:
+    business_term: "BT-31"
+    xpath: "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID)='VAT']/cbc:CompanyID"
+  buyer.name:
+    business_term: "BT-44"
+    xpath: "/ubl:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"
+  buyer.vat_number:
+    business_term: "BT-48"
+    xpath: "/ubl:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID)='VAT']/cbc:CompanyID"
+  lines[].line_id:
+    business_term: "BT-126"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cbc:ID"
+  lines[].quantity:
+    business_term: "BT-129"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/text()"
+  lines[].unit_code:
+    business_term: "BT-130"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/@unitCode"
+  lines[].item_name:
+    business_term: "BT-153"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:Item/cbc:Name"
+  lines[].net_price:
+    business_term: "BT-146"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:Price/cbc:PriceAmount"
+  lines[].price_base_quantity:
+    business_term: "BT-149"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:Price/cbc:BaseQuantity/text()"
+  lines[].allowance_amount:
+    business_term: "BT-136"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator='false']/cbc:Amount"
+  lines[].charge_amount:
+    business_term: "BT-141"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator='true']/cbc:Amount"
+  lines[].net_amount:
+    business_term: "BT-131"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cbc:LineExtensionAmount"
+  lines[].vat_category_code:
+    business_term: "BT-151"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID"
+  lines[].vat_rate:
+    business_term: "BT-152"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:Percent"
+  lines[].vat_amount:
+    business_term: "KSA-11"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:TaxTotal/cbc:TaxAmount"
+  lines[].amount_with_vat:
+    business_term: "KSA-12"
+    xpath: "/ubl:Invoice/cac:InvoiceLine/cac:TaxTotal/cbc:RoundingAmount"
+  vat_breakdowns[].category_code:
+    business_term: "BT-118"
+    xpath: "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID"
+  vat_breakdowns[].rate:
+    business_term: "BT-119"
+    xpath: "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent"
+  vat_breakdowns[].taxable_amount:
+    business_term: "BT-116"
+    xpath: "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount"
+  vat_breakdowns[].tax_amount:
+    business_term: "BT-117"
+    xpath: "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount"
+  totals.line_extension_amount:
+    business_term: "BT-106"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount"
+  totals.allowance_total_amount:
+    business_term: "BT-107"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount"
+  totals.charge_total_amount:
+    business_term: "BT-108"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"
+  totals.tax_exclusive_amount:
+    business_term: "BT-109"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"
+  totals.tax_amount:
+    business_term: "BT-110"
+    xpath: "/ubl:Invoice/cac:TaxTotal[not(cac:TaxSubtotal)]/cbc:TaxAmount"
+  totals.tax_inclusive_amount:
+    business_term: "BT-112"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"
+  totals.prepaid_amount:
+    business_term: "BT-113"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PrepaidAmount"
+  totals.payable_rounding_amount:
+    business_term: "BT-114"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"
+  totals.payable_amount:
+    business_term: "BT-115"
+    xpath: "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount"
+

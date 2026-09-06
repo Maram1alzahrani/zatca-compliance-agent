@@ -1,0 +1,169 @@
+{
+  "case_count": 32,
+  "cases": [
+    {
+      "case_id": "343d191980a05623",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0001.xml",
+      "sha256": "ff2f413d682b0bdfd91fb1b3355feb043c2f140fad87cfc8b6f21f5084736190"
+    },
+    {
+      "case_id": "13d277b8e44655d5",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0002.xml",
+      "sha256": "c9375a415a200ef7cdadbec814abeecf1b32e9f2c2604c0dca824875f8ed791b"
+    },
+    {
+      "case_id": "738334e86cea592f",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0003.xml",
+      "sha256": "7e7ad7f3ca154177ab405fa10ef6c9db6ed4eec5370ce23f2846071cdeae249d"
+    },
+    {
+      "case_id": "63c778cbf05f53c0",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0004.xml",
+      "sha256": "e4f7a251e30c88e4b5fe8caff12f48dccc51115f7c65aa72df6cec1ce7655a1e"
+    },
+    {
+      "case_id": "de432bb9a92252e6",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0005.xml",
+      "sha256": "61aa5c75d8ae866e27b63516915dfbd5bbb8426149c459f79bafbd13352f557c"
+    },
+    {
+      "case_id": "28ebf7d28bf250c3",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0006.xml",
+      "sha256": "f3687891ce1864268b74b38a227e2f81d74f640b027473cf7095e8ee07e22b07"
+    },
+    {
+      "case_id": "37ef842ede535d0d",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0007.xml",
+      "sha256": "507b30fbd89aa4b604f8e620e5666d5e69a547c1c0f20e7ab6bb656a1da40e97"
+    },
+    {
+      "case_id": "905fc8e84fbd55dd",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0008.xml",
+      "sha256": "aec4ead005c37ca1ffde0ce0c12719c441c2ebc449a8b48d87e9868b6d6dfea8"
+    },
+    {
+      "case_id": "fa9d45808c465bd5",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0009.xml",
+      "sha256": "bcd985beeff6108fb3908487c9fdb49a38e3bb1284a677630bb034a51f550bfe"
+    },
+    {
+      "case_id": "475c594b20ad5a95",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0010.xml",
+      "sha256": "ed70e25deaaf2530b38e624cab9b30ab2809af6c2ad534540fc32046fa4e36d0"
+    },
+    {
+      "case_id": "41fdccb83eff5e03",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0011.xml",
+      "sha256": "bd00856f5998d9b67c91f1bfa4ba783ee44b5a0820eed7a01ff3aa0d00c6fe60"
+    },
+    {
+      "case_id": "144956615fc553c7",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0012.xml",
+      "sha256": "8b577a35b5b0591616ac22126294657441796e915f3006534917d248101c158f"
+    },
+    {
+      "case_id": "d34f11819f685468",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0013.xml",
+      "sha256": "7b40368bd0901418b1dd04d0a7d82d81b63f6de85c723ef69cfe4aa0805a7898"
+    },
+    {
+      "case_id": "c317cd2f1c215727",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0014.xml",
+      "sha256": "6e1f52e7e01588d90de3b596202caed19f464ecc3faf21f16ae8de3905226f75"
+    },
+    {
+      "case_id": "9ab30d5bee29518b",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0015.xml",
+      "sha256": "0e2eed14f4e537921cd06bf818dc163114e52cdcf94ce8cd37645bd94665aab2"
+    },
+    {
+      "case_id": "d3ac84290b555a4a",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0016.xml",
+      "sha256": "d3e12fd8164bf21ebe89a4bfd81fa6f27d6b2cb514040e87e0fdd8db1586ce2f"
+    },
+    {
+      "case_id": "ffd7eff686f953cc",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0017.xml",
+      "sha256": "dbee2b2ae2ddac23e4c75e28dc0f46cc8e2cbdddaa6e921aad23e336e0a7db33"
+    },
+    {
+      "case_id": "73dffda7f35450a7",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0018.xml",
+      "sha256": "5eab2b47a0b7da1ea79fdbc35d1ed2c73b77a303ff105edb4f570a693af2e1eb"
+    },
+    {
+      "case_id": "4ff26ef84ead5d8d",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0019.xml",
+      "sha256": "ec88f2edbd54d663fbfff00cdb98ea325c6b4dc737d3a3de1755ecce19bff7f8"
+    },
+    {
+      "case_id": "d746db8fc27b5da2",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0020.xml",
+      "sha256": "1e7d1cc1c5d1951ac5a6d7c7a9987345d10d2e73b29443fe1cf5178da3b4c7b8"
+    },
+    {
+      "case_id": "3bba0e2d2a7c5874",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0021.xml",
+      "sha256": "841ad65f7b80c947b88b4f779e326b452bb137c8249dcc8949314212661b4290"
+    },
+    {
+      "case_id": "29b1e4e0eb4852f5",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0022.xml",
+      "sha256": "a0ceeb5a2a0aab0fde827705bb75c1642c00e2dd0f06ac43ea2eed6cda60947e"
+    },
+    {
+      "case_id": "5ce5c70da41c534e",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0023.xml",
+      "sha256": "69d2f22e53dd3d6ce745e72ab6ba71c7b0028695d6bb63bab96947725319ce05"
+    },
+    {
+      "case_id": "6852ab2eaf285c46",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0024.xml",
+      "sha256": "0a466764f3bbd913e1f1dff44cfe8ed13e59150b355a5421c4dcfeed5984f844"
+    },
+    {
+      "case_id": "26ae7517d6505059",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0025.xml",
+      "sha256": "5a462a4cbbbb0ed8c38e52b7b04d3c6aeca9c70306e28ca5f4ca7c6133b60dbb"
+    },
+    {
+      "case_id": "26734cac88ba5c34",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0026.xml",
+      "sha256": "c04e41c8f317fc75c762e86d940189839d5e3474b9718ee38d50eaf7770a3d97"
+    },
+    {
+      "case_id": "a355a8d9c7965a00",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0027.xml",
+      "sha256": "d376971fc93e0624ff8679297b821c7ef1151db669a196b9c1d78aaf16cf580b"
+    },
+    {
+      "case_id": "ebf6f9c8d4395bd9",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0028.xml",
+      "sha256": "ed95c5e2cd669f7828da5bc8c7aefb87e4e9c809f9a42d76f6f724a8d96efdf9"
+    },
+    {
+      "case_id": "0327b3562130582f",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0029.xml",
+      "sha256": "483bbbf2dcfd2ce6256ecbefd9900aa9ba42cb7f21651e9b5bb658266770f517"
+    },
+    {
+      "case_id": "7f1311ee8ca953f2",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0030.xml",
+      "sha256": "a263e14e73cc54df2cd4e0d78f69d9fa603ee699b945650a46fbb2167c5fe88e"
+    },
+    {
+      "case_id": "95c8c911cc535a24",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0031.xml",
+      "sha256": "c9f3416aa56febe1b8d529309e900158f12ae3657e9f3b2e4e3f39c95ea2ec6f"
+    },
+    {
+      "case_id": "120dba37ecdb556e",
+      "invoice_file": "synthetic/v1/validation/invoices/invoice_0032.xml",
+      "sha256": "f28fd8fb7f78425096187c013b5e4e956c593949739e2ee32cb7bf1f2d260ae7"
+    }
+  ],
+  "dataset_version": "1.0.0",
+  "generator_version": "1.0.0",
+  "seed": 2026090622,
+  "split": "validation"
+}

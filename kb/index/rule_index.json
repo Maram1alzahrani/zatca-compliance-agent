@@ -1,0 +1,24 @@
+{
+  "built_from": "kb/rules/verified_mvp_rules.yaml",
+  "chunk_ids": [
+    "rule::MVP-BUYER-001",
+    "rule::MVP-DATE-001",
+    "rule::MVP-ID-001",
+    "rule::MVP-LINE-001",
+    "rule::MVP-SELLER-001",
+    "rule::MVP-TYPE-001",
+    "rule::MVP-VAT-TOTAL-001",
+    "rule::MVP-XML-001"
+  ],
+  "corpus_sha256": "74e18af2db99696cc81246ad977fc1cddcd7c5a35ec7ba18907714d8015fba57",
+  "kb_version": "0.1.0",
+  "policy": {
+    "deterministic_validation_required": true,
+    "eligible_statuses": [
+      "VERIFIED"
+    ],
+    "retrieval_only": true
+  },
+  "rule_count": 8,
+  "source_sha256": "6b62e0c544961ef0e47a6e9581cb00a83218a46e653c597fd39280d4fadf6be1"
+}

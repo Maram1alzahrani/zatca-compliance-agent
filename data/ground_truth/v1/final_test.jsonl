@@ -1,0 +1,32 @@
+{"case_id": "c7b1e888293d5c5a", "expected_issue_count": 2, "expected_rule_ids": ["MVP-DATE-001", "MVP-TYPE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "d8d3b2aa65e25a49", "expected_issue_count": 0, "expected_rule_ids": [], "expected_selected_checks_pass": true, "safe_auto_correction": false}
+{"case_id": "399d66ff3b2b5d51", "expected_issue_count": 2, "expected_rule_ids": ["MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "6cb214f262d75c07", "expected_issue_count": 1, "expected_rule_ids": ["MVP-SELLER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "228c1d16859259a4", "expected_issue_count": 1, "expected_rule_ids": ["MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "109564cf9a08559e", "expected_issue_count": 3, "expected_rule_ids": ["MVP-SELLER-001", "MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "0f6cc9052a265d5d", "expected_issue_count": 3, "expected_rule_ids": ["MVP-TYPE-001", "MVP-BUYER-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "fa99c7bb612a59a0", "expected_issue_count": 1, "expected_rule_ids": ["MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "a4a85c8d847f5382", "expected_issue_count": 2, "expected_rule_ids": ["MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "0b783f37c2f957ad", "expected_issue_count": 0, "expected_rule_ids": [], "expected_selected_checks_pass": true, "safe_auto_correction": false}
+{"case_id": "26471859c896586f", "expected_issue_count": 1, "expected_rule_ids": ["MVP-BUYER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "9e2bfe0e7ae15f0c", "expected_issue_count": 1, "expected_rule_ids": ["MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "ee6a1525d14a5ba9", "expected_issue_count": 3, "expected_rule_ids": ["MVP-XML-001", "MVP-SELLER-001", "MVP-LINE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "a75d59d5fc595a91", "expected_issue_count": 2, "expected_rule_ids": ["MVP-XML-001", "MVP-DATE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "27d1cd305dab571a", "expected_issue_count": 4, "expected_rule_ids": ["MVP-XML-001", "MVP-ID-001", "MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "7fdcf4a87e185bf1", "expected_issue_count": 2, "expected_rule_ids": ["MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "c8121cf3d10c51e7", "expected_issue_count": 3, "expected_rule_ids": ["MVP-XML-001", "MVP-DATE-001", "MVP-BUYER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "03692db934fe5b84", "expected_issue_count": 1, "expected_rule_ids": ["MVP-DATE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "7ff91679db0f562f", "expected_issue_count": 2, "expected_rule_ids": ["MVP-LINE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": true}
+{"case_id": "0010314738d65bde", "expected_issue_count": 1, "expected_rule_ids": ["MVP-XML-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "81bd715d5037560f", "expected_issue_count": 0, "expected_rule_ids": [], "expected_selected_checks_pass": true, "safe_auto_correction": false}
+{"case_id": "db369228680c5843", "expected_issue_count": 1, "expected_rule_ids": ["MVP-TYPE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "a2d1056a503c53e2", "expected_issue_count": 0, "expected_rule_ids": [], "expected_selected_checks_pass": true, "safe_auto_correction": false}
+{"case_id": "aec7ad4d11ce541a", "expected_issue_count": 2, "expected_rule_ids": ["MVP-XML-001", "MVP-LINE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "e4fb97f72c8d5c19", "expected_issue_count": 1, "expected_rule_ids": ["MVP-TYPE-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "8727ff49fedb5708", "expected_issue_count": 3, "expected_rule_ids": ["MVP-DATE-001", "MVP-SELLER-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "b380109d400c5ae0", "expected_issue_count": 2, "expected_rule_ids": ["MVP-SELLER-001", "MVP-BUYER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "442135d9207f5131", "expected_issue_count": 2, "expected_rule_ids": ["MVP-XML-001", "MVP-ID-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "d430b9b9688f5ea8", "expected_issue_count": 1, "expected_rule_ids": ["MVP-SELLER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "0e714b19f0e25ce3", "expected_issue_count": 2, "expected_rule_ids": ["MVP-TYPE-001", "MVP-VAT-TOTAL-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "e16fe2d70a7b5758", "expected_issue_count": 3, "expected_rule_ids": ["MVP-XML-001", "MVP-ID-001", "MVP-SELLER-001"], "expected_selected_checks_pass": false, "safe_auto_correction": false}
+{"case_id": "5e768b4164a157e8", "expected_issue_count": 0, "expected_rule_ids": [], "expected_selected_checks_pass": true, "safe_auto_correction": false}

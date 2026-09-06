@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/zatca-compliance-agent/rule.schema.json",
+  "title": "Verified MVP Rule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "internal_rule_id",
+    "status",
+    "name",
+    "official_identifiers",
+    "meaning",
+    "applicable_invoice_type",
+    "validation_logic",
+    "internal_severity",
+    "official_severity",
+    "source_references",
+    "valid_example",
+    "invalid_example"
+  ],
+  "properties": {
+    "internal_rule_id": {
+      "type": "string",
+      "pattern": "^MVP-[A-Z]+(?:-[A-Z]+)*-[0-9]{3}$"
+    },
+    "status": { "const": "VERIFIED" },
+    "name": { "type": "string", "minLength": 3 },
+    "official_identifiers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "meaning": { "type": "string", "minLength": 15 },
+    "applicable_invoice_type": { "type": "string", "minLength": 3 },
+    "validation_logic": { "type": "string", "minLength": 15 },
+    "internal_severity": { "enum": ["ERROR", "WARNING", "INFO"] },
+    "official_severity": { "type": ["string", "null"] },
+    "source_references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "section"],
+        "properties": {
+          "source": { "type": "string", "minLength": 1 },
+          "section": { "type": "string", "minLength": 3 },
+          "pages": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "valid_example": { "type": "string", "minLength": 3 },
+    "invalid_example": { "type": "string", "minLength": 3 }
+  }
+}

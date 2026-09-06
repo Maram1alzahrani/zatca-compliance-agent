@@ -1,0 +1,33 @@
+registry_version: "0.1.0"
+verified_on: "2026-09-05"
+policy: "Entries here MUST NOT affect labels, evaluation, or a compliance decision."
+
+items:
+  - candidate: "QR payload requirements"
+    status: "DEFERRED"
+    reason: "Officially grounded but coupled to Security Features, signature/stamp content, invoice subtype, and integration lifecycle. A presence-only rule is inadequate."
+    official_leads: ["BR-KSA-27", "KSA-14", "Security Features Implementation Standards"]
+    reconsider_when: "A dedicated signed/simplified or post-clearance fixture profile and official SDK oracle are designed."
+
+  - candidate: "Cryptographic stamp and electronic signature"
+    status: "DEFERRED"
+    reason: "Requires certificate/key lifecycle and canonicalization/signature verification beyond the selected deterministic content MVP."
+    official_leads: ["BR-KSA-28", "BR-KSA-29", "BR-KSA-30", "BR-KSA-60"]
+
+  - candidate: "Previous invoice hash and invoice counter"
+    status: "DEFERRED"
+    reason: "Sequence-state validation cannot be proven correctly from a single isolated invoice."
+    official_leads: ["BR-KSA-33", "BR-KSA-34", "BR-KSA-61"]
+
+  - candidate: "Full mandatory-field validation"
+    status: "UNVERIFIED_AS_A_SINGLE_RULE"
+    reason: "There is no safe universal checklist independent of invoice subtype and transaction flags. Fields must be added individually with Data Dictionary status and conditional context."
+
+  - candidate: "Generic seller tax-data format"
+    status: "REJECTED_AS_VAGUE"
+    reason: "Replaced by the verified, precisely scoped seller name and BT-31 VAT identifier checks. Other seller IDs and address fields need separate rules."
+
+  - candidate: "Any invoice type/code accepted"
+    status: "DEFERRED"
+    reason: "Credit notes, debit notes, prepayments, simplified invoices, and transaction flags introduce distinct mandatory and conditional rules. They are classified OUT_OF_SCOPE rather than failed by the MVP."
+

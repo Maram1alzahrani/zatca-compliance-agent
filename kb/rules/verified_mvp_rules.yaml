@@ -1,0 +1,165 @@
+registry_version: "0.1.0"
+verified_on: "2026-09-05"
+status: "PHASE_2_VERIFIED"
+profile:
+  document: "UBL 2.1 Invoice XML"
+  invoice_type: "Standard Tax Invoice"
+  invoice_type_code: "388"
+  transaction_code_base_case: "0100000"
+  vat_scenario: "Domestic standard-rated supply only"
+severity_policy:
+  authority: "INTERNAL_POC"
+  note: "The severities below are project triage levels, not official ZATCA severities."
+sources:
+  xml_standard:
+    title: "Electronic Invoice XML Implementation Standard"
+    version: "1.2"
+    date: "2023-05-19"
+    url: "https://zatca.gov.sa/ar/E-Invoicing/SystemsDevelopers/Documents/20230519_ZATCA_Electronic_Invoice_XML_Implementation_Standard_%20vF.pdf"
+  data_dictionary:
+    title: "Electronic Invoice Data Dictionary"
+    date: "2023-05-19"
+    url: "https://zatca.gov.sa/ar/E-Invoicing/SystemsDevelopers/Documents/20230519_EInvoice_Data_Dictionary%20vF.xlsx"
+
+rules:
+  - internal_rule_id: "MVP-XML-001"
+    status: "VERIFIED"
+    name: "XML well-formedness and UBL schema validity"
+    official_identifiers: ["UBL 2.1 schema validation"]
+    meaning: "The invoice XML must be well formed, follow the UBL 2.1 element sequence, contain UBL-mandatory elements, and use values compatible with element types."
+    applicable_invoice_type: "All electronic invoice XML documents; exercised only on the frozen Tax Invoice profile."
+    validation_logic: "Parse with a secure XML parser, then validate against the official UBL 2.1 Invoice XSD set packaged from the official SDK/reference materials. Fail closed when the schema bundle is unavailable or its recorded checksum differs."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "4 Validation"
+        pages: "5–6 (PDF pages 6–7)"
+    valid_example: "A well-formed Invoice whose elements follow the UBL 2.1 sequence and XSD types."
+    invalid_example: "An Invoice with an unclosed tag or cbc:ID in an invalid schema position."
+
+  - internal_rule_id: "MVP-ID-001"
+    status: "VERIFIED"
+    name: "Invoice number presence"
+    official_identifiers: ["BR-02", "BT-1"]
+    meaning: "An invoice must contain a non-empty invoice number."
+    applicable_invoice_type: "Tax Invoice (also official for other invoice/note profiles, but not exercised here)."
+    validation_logic: "Require exactly one non-empty /Invoice/cbc:ID after namespace-aware parsing."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "13.2.1 Business rules — integrity constraints"
+        pages: "35–36 (PDF pages 36–37)"
+      - source: "data_dictionary"
+        section: "Data dictionary row: Invoice number; BT-1; cardinality 1..1; Tax invoice status M"
+    valid_example: "<cbc:ID>INV-2026-0001</cbc:ID>"
+    invalid_example: "cbc:ID is absent or empty."
+
+  - internal_rule_id: "MVP-DATE-001"
+    status: "VERIFIED"
+    name: "Invoice issue date presence, format, and temporal bound"
+    official_identifiers: ["BR-03", "BR-KSA-04", "BR-KSA-F-01", "BT-2"]
+    meaning: "An invoice must contain an issue date formatted as YYYY-MM-DD without timezone information, and the date must be less than or equal to the current date."
+    applicable_invoice_type: "Tax Invoice."
+    validation_logic: "Require one cbc:IssueDate; require lexical pattern YYYY-MM-DD; parse as a real Gregorian calendar date; reject timezone suffixes; compare with an injected validation_date clock and reject dates after it."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "7.3 Semantic data types — Date; 13.2.1 BR-03; 13.3.1 BR-KSA-04; 13.3.5 BR-KSA-F-01"
+        pages: "13, 35–36, 47, and 68 (PDF pages 14, 36–37, 48, and 69)"
+      - source: "data_dictionary"
+        section: "Data dictionary row: Invoice issue date; BT-2; cardinality 1..1; Tax invoice status M"
+    valid_example: "2026-09-05"
+    invalid_example: "05/09/2026, 2026-02-30, or a date later than validation_date"
+
+  - internal_rule_id: "MVP-TYPE-001"
+    status: "VERIFIED"
+    name: "Frozen Tax Invoice type and subtype"
+    official_identifiers: ["BR-04", "BR-CL-01", "BT-3", "KSA-2"]
+    meaning: "The selected MVP accepts only an ordinary Tax Invoice: code 388 with Saudi subtype 01. The seven-position base transaction code is 0100000."
+    applicable_invoice_type: "MVP input gate; Standard Tax Invoice only."
+    validation_logic: "Require one cbc:InvoiceTypeCode. Require text 388. Require a seven-character @name whose first two positions are 01 and, for the frozen base scenario, require exactly 0100000. Other officially valid types are classified OUT_OF_SCOPE, not noncompliant."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "11.2.1 Code list for invoice type code; 13.2.1 BR-04; 13.2.7 BR-CL-01"
+        pages: "30–31, 36, and 44 (PDF pages 31–32, 37, and 45)"
+      - source: "data_dictionary"
+        section: "Data dictionary row: Invoice type code; BT-3; cardinality 1..1; Tax invoice status M"
+    valid_example: "<cbc:InvoiceTypeCode name=\"0100000\">388</cbc:InvoiceTypeCode>"
+    invalid_example: "Code 381 (credit note), or subtype 02 (simplified invoice); these are OUT_OF_SCOPE for this MVP."
+
+  - internal_rule_id: "MVP-SELLER-001"
+    status: "VERIFIED"
+    name: "Seller name and VAT identifier"
+    official_identifiers: ["BR-06", "BT-27", "BR-KSA-39", "BR-KSA-40", "BT-31"]
+    meaning: "The invoice must contain the seller name and seller VAT/group VAT number; the VAT number has 15 digits and its first and last digits are 3."
+    applicable_invoice_type: "Tax Invoice."
+    validation_logic: "Require a non-empty seller RegistrationName. Require CompanyID under PartyTaxScheme whose TaxScheme ID is VAT; normalize no punctuation; require regex ^3[0-9]{13}3$."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "13.2.1 BR-06; 13.3.1 BR-KSA-39 and BR-KSA-40"
+        pages: "36 and 56 (PDF pages 37 and 57)"
+      - source: "data_dictionary"
+        section: "Rows: Seller name BT-27 and VAT number BT-31; Tax invoice status M"
+    valid_example: "Seller name 'Synthetic Seller LLC'; VAT number 310123456789003."
+    invalid_example: "VAT number 110123456789002, a 14-digit value, or a missing seller name."
+
+  - internal_rule_id: "MVP-BUYER-001"
+    status: "VERIFIED"
+    name: "Buyer name presence for Tax Invoice"
+    official_identifiers: ["BR-KSA-42", "BT-44"]
+    meaning: "Buyer name must be present in a Tax Invoice."
+    applicable_invoice_type: "Tax Invoice and its notes; exercised only for an ordinary Tax Invoice."
+    validation_logic: "Require a non-empty cbc:RegistrationName in AccountingCustomerParty/Party/PartyLegalEntity."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "13.3.1 BR-KSA-42"
+        pages: "56 (PDF page 57)"
+      - source: "data_dictionary"
+        section: "Data dictionary row: Buyer name; BT-44; Tax invoice status M"
+    valid_example: "<cbc:RegistrationName>Synthetic Buyer Ltd</cbc:RegistrationName>"
+    invalid_example: "Buyer RegistrationName is absent in a Tax Invoice."
+
+  - internal_rule_id: "MVP-LINE-001"
+    status: "VERIFIED"
+    name: "Invoice line net and line-sum reconciliation"
+    official_identifiers: ["BR-KSA-EN16931-11", "BT-129", "BT-131", "BT-146", "BT-149", "BR-CO-10", "BT-106"]
+    meaning: "Each line net amount equals quantity multiplied by unit net price divided by base quantity, plus line charges minus line allowances; the document line-net sum equals the sum of all line net amounts."
+    applicable_invoice_type: "Frozen profile with positive ordinary lines; initial cases contain no line allowances or charges and base quantity defaults to 1."
+    validation_logic: "Use Decimal arithmetic. Compute each line using the complete official formula, even though initial fixtures set charge/allowance sums to zero. Compare the declared BT-131, then sum declared/validated BT-131 values and compare with BT-106 using official monetary precision."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "9.3 Calculation on invoice line level; 13.2.2 BR-CO-10; 13.3.4 BR-KSA-EN16931-11"
+        pages: "17, 38, and 67 (PDF pages 18, 39, and 68)"
+      - source: "data_dictionary"
+        section: "Rows: Invoice line net amount BT-131 and Sum of Invoice line net amount BT-106"
+    valid_example: "2 units × SAR 50 / base quantity 1 = line net SAR 100; two lines 100 and 40 give BT-106 = 140.00."
+    invalid_example: "2 × 50 is declared as BT-131 = 90, or line values 100 and 40 have BT-106 = 130."
+
+  - internal_rule_id: "MVP-VAT-TOTAL-001"
+    status: "VERIFIED"
+    name: "Standard VAT and document-total reconciliation"
+    official_identifiers: ["BR-S-08", "BR-S-09", "BR-CO-13", "BR-CO-14", "BR-CO-15", "BR-CO-17", "BT-109", "BT-110", "BT-112", "BT-116", "BT-117", "BT-119"]
+    meaning: "For standard-rated lines, the VAT-category taxable amount reconciles to the applicable net amounts; category VAT equals taxable amount times rate divided by 100 rounded to two decimals; total VAT is the sum of category VAT; VAT-inclusive total equals VAT-exclusive total plus total VAT."
+    applicable_invoice_type: "Frozen domestic Tax Invoice profile with VAT category S, one rate, SAR, and no allowances/charges/prepayments/rounding adjustment."
+    validation_logic: "Use Decimal arithmetic and ROUND_HALF_UP to two decimal places for the category tax calculation. Under the frozen profile: BT-109 = BT-106; BT-117 = round(BT-116 × BT-119 / 100, 2); BT-110 = sum(BT-117); BT-112 = BT-109 + BT-110. Reject missing components before arithmetic."
+    internal_severity: "ERROR"
+    official_severity: null
+    source_references:
+      - source: "xml_standard"
+        section: "10 Rounding; 13.2.2 BR-CO-13 through BR-CO-17; 13.2.3 BR-S-08 and BR-S-09"
+        pages: "29–30 and 38–40 (PDF pages 30–31 and 39–41)"
+      - source: "data_dictionary"
+        section: "Rows BT-109, BT-110, BT-112, BT-116, BT-117, and BT-119"
+    valid_example: "Taxable SAR 100.00 at 15.00% gives VAT 15.00 and tax-inclusive total 115.00."
+    invalid_example: "Taxable SAR 100.00 at 15.00% declares VAT 14.00 or tax-inclusive total 114.00."
