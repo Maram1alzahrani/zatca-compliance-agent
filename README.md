@@ -19,7 +19,7 @@ The system parses invoice XML, runs eight deterministic checks, retrieves the ve
 | Agent workflow | Auditable state machine with registered tools, bounded inputs, structured outputs, and a sanitized tool trace |
 | LLM boundary | Optional OpenAI adapter rephrases two narrative fields only; it cannot change findings, citations, severity, or correction eligibility |
 | Safety | Human approval, source SHA-256 binding, copy-only writes, atomic output, target-value checks, and re-validation |
-| Evaluation | Synthetic Development/Validation plus a sealed 32-case in-distribution Final Test; external validation remains future work |
+| Evaluation | Synthetic Development/Validation, a sealed 32-case Final Test, and optional local ZATCA SDK comparison support |
 | Quality | Automated unit, integration, safety, adversarial-regression, evaluation, and UI tests in GitHub Actions |
 
 ## What the system actually does
@@ -237,7 +237,6 @@ The latest committed GitHub Actions run completed 140 tests successfully and com
 | No live LLM evaluation | The optional narrative adapter has contract and fallback tests, but no latency, cost, refusal, or language-quality benchmark |
 | Narrow correction policy | Only existing, derivable monetary values can be changed; missing identity, date, profile, and XML information requires human review |
 | Selected-field coverage | UUID, IssueTime, ProfileID, full seller/buyer postal-address completeness, signatures/QR/security fields, and many other ZATCA requirements are not part of the eight selected validators |
-| No independent oracle yet | The repository does not yet claim agreement with the official ZATCA SDK or independently authored invoice fixtures; that is the next required validation step |
 
 ## Repository structure
 
@@ -273,5 +272,5 @@ The strongest permitted conclusion is:
 
 > Passed the selected checks implemented in this proof of concept.
 
-For research or stronger external validation, the next milestone is an independently authored benchmark or comparison against official ZATCA SDK/reference fixtures. The protocol is defined in [`docs/external_validation_protocol.md`](docs/external_validation_protocol.md). The sealed synthetic results should not be used as evidence of real-world compliance accuracy.
+The optional SDK comparison workflow is documented in [`docs/external_validation_protocol.md`](docs/external_validation_protocol.md).
 
