@@ -78,9 +78,9 @@ rules:
     status: "VERIFIED"
     name: "Frozen Tax Invoice type and subtype"
     official_identifiers: ["BR-04", "BR-CL-01", "BT-3", "KSA-2"]
-    meaning: "The selected MVP accepts only an ordinary Tax Invoice: code 388 with Saudi subtype 01. The seven-position base transaction code is 0100000."
+    meaning: "The selected MVP accepts only an ordinary Tax Invoice: code 388 with Saudi subtype 01, the seven-position base transaction code 0100000, and SAR as the document and tax currency for this frozen profile."
     applicable_invoice_type: "MVP input gate; Standard Tax Invoice only."
-    validation_logic: "Require one cbc:InvoiceTypeCode. Require text 388. Require a seven-character @name whose first two positions are 01 and, for the frozen base scenario, require exactly 0100000. Other officially valid types are classified OUT_OF_SCOPE, not noncompliant."
+    validation_logic: "Require one cbc:InvoiceTypeCode with text 388 and frozen @name 0100000. Also enforce cbc:DocumentCurrencyCode=SAR and cbc:TaxCurrencyCode=SAR as MVP profile gates. Other officially valid invoice types or currencies are OUT_OF_SCOPE for this POC rather than claims of regulatory noncompliance."
     internal_severity: "ERROR"
     official_severity: null
     source_references:
@@ -149,10 +149,10 @@ rules:
   - internal_rule_id: "MVP-VAT-TOTAL-001"
     status: "VERIFIED"
     name: "Standard VAT and document-total reconciliation"
-    official_identifiers: ["BR-S-08", "BR-S-09", "BR-CO-13", "BR-CO-14", "BR-CO-15", "BR-CO-17", "BT-109", "BT-110", "BT-112", "BT-116", "BT-117", "BT-119"]
-    meaning: "For standard-rated lines, the VAT-category taxable amount reconciles to the applicable net amounts; category VAT equals taxable amount times rate divided by 100 rounded to two decimals; total VAT is the sum of category VAT; VAT-inclusive total equals VAT-exclusive total plus total VAT."
+    official_identifiers: ["BR-S-08", "BR-S-09", "BR-CO-13", "BR-CO-14", "BR-CO-15", "BR-CO-16", "BR-CO-17", "BT-109", "BT-110", "BT-112", "BT-113", "BT-114", "BT-115", "BT-116", "BT-117", "BT-119"]
+    meaning: "For this frozen Saudi standard-rate profile, invoice lines and the VAT breakdown use category S at 15%; the taxable amount reconciles to applicable line net amounts; category VAT equals taxable amount times rate divided by 100 rounded to two decimals; total VAT and VAT-inclusive total reconcile; and amount due equals VAT-inclusive total minus prepaid amount plus rounding."
     applicable_invoice_type: "Frozen domestic Tax Invoice profile with VAT category S, one rate, SAR, and no allowances/charges/prepayments/rounding adjustment."
-    validation_logic: "Use Decimal arithmetic and ROUND_HALF_UP to two decimal places for the category tax calculation. Under the frozen profile: BT-109 = BT-106; BT-117 = round(BT-116 × BT-119 / 100, 2); BT-110 = sum(BT-117); BT-112 = BT-109 + BT-110. Reject missing components before arithmetic."
+    validation_logic: "Use Decimal arithmetic and ROUND_HALF_UP to two decimal places. Under the frozen profile, require line and breakdown VAT category S at 15%; BT-109 = BT-106 minus document allowances plus charges; BT-117 = round(BT-116 × BT-119 / 100, 2); BT-110 = sum(BT-117); BT-112 = BT-109 + BT-110; and BR-CO-16/BT-115 = BT-112 - BT-113 + BT-114. Reject missing components before arithmetic."
     internal_severity: "ERROR"
     official_severity: null
     source_references:
