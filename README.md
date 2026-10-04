@@ -200,6 +200,20 @@ python3 scripts/run_agent.py path/to/synthetic.xml \
 
 Do not commit `.env`, API keys, real invoices, or customer data.
 
+## External ZATCA SDK comparison
+
+The repository includes an **optional local oracle adapter** for independently sourced fixtures. The official SDK is not redistributed here; ZATCA provides it separately under its own download terms.
+
+```bash
+python3 scripts/run_external_sdk_benchmark.py external_fixtures/zatca_sdk \
+  --sdk-command 'YOUR_SDK_COMMAND {invoice}' \
+  --validation-date 2026-10-04
+```
+
+The runner parses the SDK's global PASS/FAIL result, runs this POC's selected checks on the same XML, and writes agreement/disagreement analysis to `evaluation/results/external_sdk_benchmark.json`.
+
+A disagreement is intentionally preserved for analysis rather than hidden: the official SDK validates a broader rule set than this POC. See [External Validation Protocol](docs/external_validation_protocol.md) and [fixture instructions](external_fixtures/zatca_sdk/README.md).
+
 ## Testing
 
 ```bash
