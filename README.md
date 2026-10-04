@@ -14,13 +14,13 @@ The system parses invoice XML, runs eight deterministic checks, retrieves the ve
 
 | Area | Implemented evidence |
 | --- | --- |
-| Validation | Eight deterministic XML, identity, date, profile, party, line, VAT, and total check groups |
+| Validation | Eight deterministic XML, identity, date, frozen-profile, party, line, VAT, and total check groups |
 | Grounding | Verified rule corpus with official identifiers, source sections, pages, URLs, and integrity checks |
 | Agent workflow | Auditable state machine with registered tools, bounded inputs, structured outputs, and a sanitized tool trace |
 | LLM boundary | Optional OpenAI adapter rephrases two narrative fields only; it cannot change findings, citations, severity, or correction eligibility |
 | Safety | Human approval, source SHA-256 binding, copy-only writes, atomic output, target-value checks, and re-validation |
-| Evaluation | 112 synthetic cases across Development, Validation, and a sealed 32-case Final Test |
-| Quality | 140 automated tests and Python compilation checks in GitHub Actions |
+| Evaluation | Synthetic Development/Validation plus a sealed 32-case in-distribution Final Test; external validation remains future work |
+| Quality | Automated unit, integration, safety, adversarial-regression, evaluation, and UI tests in GitHub Actions |
 
 ## What the system actually does
 
@@ -36,13 +36,13 @@ The system parses invoice XML, runs eight deterministic checks, retrieves the ve
 
 The default path is fully local and requires no API key. The optional LLM adapter changes wording only; the sealed Final Test used no live LLM provider.
 
-## Why this is an AI Engineering project
+## AI engineering scope
 
-The core engineering problem is controlled AI behavior around high-stakes structured data, not free-form chatbot generation.
+This repository demonstrates **AI systems engineering**, not model training or an ML benchmark. The core problem is controlling optional language-model behavior around high-stakes structured data while keeping validation, monetary calculations, evidence selection, and correction policy deterministic.
 
 | Engineering concern | Repository implementation |
 | --- | --- |
-| Reliable tool use | Mandatory tool order is enforced by a deterministic workflow rather than delegated to unconstrained model planning |
+| Reliable workflow execution | Mandatory tool order is enforced by a deterministic state machine rather than presented as model planning ability |
 | Grounded generation | Explanations are assembled from structured findings and a verified evidence contract |
 | Hallucination containment | Generated rule IDs, URLs, unsupported claims, and prohibited compliance language are rejected; deterministic fallback remains available |
 | Reproducibility | Fixed synthetic-data generation, separated labels, frozen evaluation inputs, and SHA-256 seals |
@@ -93,7 +93,7 @@ The profile is deliberately narrow so every result remains testable.
 | Invoice class | Standard Tax Invoice (B2B) |
 | Type | `InvoiceTypeCode=388`, Saudi subtype `01`, base flags `0100000` |
 | VAT | Domestic, standard-rated (`S`) only |
-| Currency | SAR |
+| Currency | SAR document and tax currency, enforced as frozen-profile gates |
 | Lines | Positive ordinary lines; no allowances or charges in generated fixtures |
 | Data | Fully synthetic |
 | Security lifecycle | Signing, stamping, clearance, reporting, and production APIs excluded |
@@ -105,11 +105,11 @@ The profile is deliberately narrow so every result remains testable.
 | `MVP-XML-001` | XML well-formedness and UBL 2.1 XSD validity | UBL 2.1 schema validation |
 | `MVP-ID-001` | Invoice number presence | `BR-02`, `BT-1` |
 | `MVP-DATE-001` | Issue-date presence, format, and temporal bound | `BR-03`, `BR-KSA-04`, `BR-KSA-F-01`, `BT-2` |
-| `MVP-TYPE-001` | Frozen Tax Invoice type and subtype | `BR-04`, `BR-CL-01`, `BT-3`, `KSA-2` |
+| `MVP-TYPE-001` | Frozen Tax Invoice type/subtype and SAR profile gate | `BR-04`, `BR-CL-01`, `BT-3`, `KSA-2` |
 | `MVP-SELLER-001` | Seller name and VAT identifier | `BR-06`, `BT-27`, `BR-KSA-39`, `BR-KSA-40`, `BT-31` |
 | `MVP-BUYER-001` | Buyer name presence | `BR-KSA-42`, `BT-44` |
 | `MVP-LINE-001` | Line-net formula and line-sum reconciliation | `BR-KSA-EN16931-11`, `BR-CO-10`, related BTs |
-| `MVP-VAT-TOTAL-001` | Standard VAT and document-total reconciliation | `BR-S-08`, `BR-S-09`, `BR-CO-13`–`BR-CO-17`, related BTs |
+| `MVP-VAT-TOTAL-001` | Frozen 15% standard VAT, line/breakdown rate consistency, and document-total reconciliation including amount due | `BR-S-08`, `BR-S-09`, `BR-CO-13`–`BR-CO-17`, related BTs |
 
 Severity values are internal triage levels, not official ZATCA severities. Valid profiles outside this frozen scope are reported as out of scope rather than assessed as fully compliant or non-compliant.
 
@@ -129,26 +129,26 @@ The following claims can be inspected directly in the repository:
 | Result integrity | [`evaluation/results/phase_13_result_seal.json`](evaluation/results/phase_13_result_seal.json) |
 | CI execution | [GitHub Actions test workflow](https://github.com/Maram1alzahrani/zatca-compliance-agent/actions/workflows/tests.yml) |
 
-### Final unseen evaluation
+### Sealed synthetic final evaluation
 
-The Final Test runner was executed once on 32 synthetic invoices. It froze code and data hashes before inference, withheld ground truth until all predictions completed, and sealed the outputs afterward.
+The Final Test runner was executed once on 32 held-out synthetic invoices. It froze code and data hashes before inference, withheld ground truth until all predictions completed, and sealed the outputs afterward. **This is an in-distribution engineering evaluation, not an independent or out-of-distribution benchmark.**
 
 | Metric | Result |
 | --- | ---: |
 | Rule-level TP / FP / FN | 52 / 0 / 0 |
 | Detection precision / recall / F1 | 1.0000 / 1.0000 / 1.0000 |
 | Exact rule-set accuracy | 1.0000 |
-| Rule retrieval accuracy | 1.0000 |
-| Structurally grounded findings | 52 / 52 |
+| Exact rule-evidence lookup consistency | 1.0000 |
+| Structural evidence-contract consistency | 52 / 52 |
 | Unsupported claims | 0 |
 | Approved correction success | 7 / 7 |
 | Original integrity rate | 1.0000 |
-| Tool-selection workflow success | 32 / 32 |
+| Deterministic workflow execution success | 32 / 32 |
 | Invalid or failed tool calls | 0 / 138 |
 
-These perfect results establish consistency only within the declared synthetic benchmark. The Final Test was unseen during development but was generated from the same frozen schema, rule definitions, and mutation family as the other splits. The evaluation does not demonstrate robustness to independently authored production invoices, complete ZATCA coverage, or live-LLM reliability. Grounding was checked structurally, not by human semantic adjudication.
+These perfect results establish **internal consistency only** within the declared synthetic generator family. Development, Validation, and Final Test share the same schema, rule definitions, and mutation families; the split therefore tests repeatability across held-out generated cases rather than real-world generalization. Exact rule lookup and deterministic workflow execution are integration checks, not semantic-retrieval or autonomous-agent benchmarks. The evaluation does not demonstrate robustness to independently authored invoices, complete ZATCA coverage, or live-LLM reliability. Grounding was checked structurally, not by human semantic adjudication.
 
-Full protocol, per-rule results, confusion matrix, hashes, and the preserved presentation-only reporting defect are documented in [`docs/phase_13_final_unseen_evaluation.md`](docs/phase_13_final_unseen_evaluation.md).
+Full protocol, per-rule results, confusion matrix, hashes, and the preserved presentation-only reporting defect are documented in [`docs/phase_13_final_unseen_evaluation.md`](docs/phase_13_final_unseen_evaluation.md). A corrected presentation-only companion is available at [`evaluation/results/phase_13_final_test_corrected.md`](evaluation/results/phase_13_final_test_corrected.md), while the original sealed artifacts remain unchanged.
 
 ## Run the demo
 
@@ -218,10 +218,12 @@ The latest committed GitHub Actions run completed 140 tests successfully and com
 | Security lifecycle excluded | QR payloads, signatures, certificates, cryptographic stamps, invoice hashes, counters, and previous-invoice hashes are not validated |
 | No ZATCA integration | The system does not call clearance/reporting APIs and does not replace the official SDK |
 | Synthetic data only | Behavior on real or independently authored production documents has not been established |
-| Generated benchmark family | Perfect Final Test results do not measure out-of-distribution robustness |
+| Generated benchmark family | Perfect Final Test results measure in-family consistency, not out-of-distribution robustness |
 | Structural grounding metric | Evidence fields are contract-checked, but explanation quality has not been independently graded by domain experts |
 | No live LLM evaluation | The optional narrative adapter has contract and fallback tests, but no latency, cost, refusal, or language-quality benchmark |
 | Narrow correction policy | Only existing, derivable monetary values can be changed; missing identity, date, profile, and XML information requires human review |
+| Selected-field coverage | UUID, IssueTime, ProfileID, full seller/buyer postal-address completeness, signatures/QR/security fields, and many other ZATCA requirements are not part of the eight selected validators |
+| No independent oracle yet | The repository does not yet claim agreement with the official ZATCA SDK or independently authored invoice fixtures; that is the next required validation step |
 
 ## Repository structure
 
@@ -256,4 +258,6 @@ This repository is an independent educational and portfolio proof of concept. It
 The strongest permitted conclusion is:
 
 > Passed the selected checks implemented in this proof of concept.
+
+For research or stronger external validation, the next milestone is an independently authored benchmark or comparison against official ZATCA SDK/reference fixtures. The protocol is defined in [`docs/external_validation_protocol.md`](docs/external_validation_protocol.md). The sealed synthetic results should not be used as evidence of real-world compliance accuracy.
 

@@ -84,9 +84,20 @@ def validate_invoice_type(invoice: CanonicalInvoice) -> CheckResult:
         problems.append(f"Expected type code 388; found {invoice.invoice_type_code!r}.")
     if invoice.transaction_code != "0100000":
         problems.append(f"Expected frozen transaction code 0100000; found {invoice.transaction_code!r}.")
+    if invoice.document_currency_code != "SAR":
+        problems.append(
+            f"Frozen profile requires document currency SAR; found {invoice.document_currency_code!r}."
+        )
+    if invoice.tax_currency_code != "SAR":
+        problems.append(
+            f"Frozen profile requires tax currency SAR; found {invoice.tax_currency_code!r}."
+        )
     if problems:
         return failed("MVP-TYPE-001", "Invoice is outside the frozen Standard Tax Invoice profile.", problems)
-    return passed("MVP-TYPE-001", "Invoice type code and Saudi transaction code match the frozen profile.")
+    return passed(
+        "MVP-TYPE-001",
+        "Invoice type, Saudi transaction code, and SAR currency match the frozen profile.",
+    )
 
 
 def validate_seller(invoice: CanonicalInvoice) -> CheckResult:
@@ -177,14 +188,24 @@ def validate_vat_and_totals(invoice: CanonicalInvoice) -> CheckResult:
     if not invoice.vat_breakdowns:
         return failed("MVP-VAT-TOTAL-001", "VAT breakdown is missing.", ["BG-23 / BR-CO-18"])
     line_net_by_standard = Decimal("0")
+    expected_standard_rate = Decimal("15.00")
     for index, line in enumerate(invoice.lines, start=1):
-        if line.vat_category_code == "S":
-            value = _decimal(line.net_amount, f"line {index} net amount", problems)
-            if value is not None:
-                try:
-                    line_net_by_standard += value
-                except DecimalException:
-                    problems.append("Standard line-net aggregation exceeds supported decimal bounds.")
+        if line.vat_category_code != "S":
+            problems.append(
+                f"line {index} VAT category {line.vat_category_code!r} is outside frozen S profile."
+            )
+            continue
+        line_rate = _decimal(line.vat_rate, f"line {index} VAT rate", problems)
+        if line_rate is not None and line_rate != expected_standard_rate:
+            problems.append(
+                f"line {index} VAT rate {line_rate} != frozen standard rate {expected_standard_rate}."
+            )
+        value = _decimal(line.net_amount, f"line {index} net amount", problems)
+        if value is not None:
+            try:
+                line_net_by_standard += value
+            except DecimalException:
+                problems.append("Standard line-net aggregation exceeds supported decimal bounds.")
 
     breakdown_tax_sum = Decimal("0")
     for index, breakdown in enumerate(invoice.vat_breakdowns, start=1):
@@ -193,6 +214,10 @@ def validate_vat_and_totals(invoice: CanonicalInvoice) -> CheckResult:
         tax = _decimal(breakdown.tax_amount, f"breakdown {index} tax amount", problems)
         if breakdown.category_code != "S":
             problems.append(f"breakdown {index} category {breakdown.category_code!r} is outside frozen S profile.")
+        if rate is not None and rate != expected_standard_rate:
+            problems.append(
+                f"breakdown {index} VAT rate {rate} != frozen standard rate {expected_standard_rate}."
+            )
         try:
             rounded_line_net = _round(line_net_by_standard)
         except DecimalException:
@@ -218,6 +243,14 @@ def validate_vat_and_totals(invoice: CanonicalInvoice) -> CheckResult:
         exclusive = _decimal(totals.tax_exclusive_amount, "BT-109", problems)
         total_tax = _decimal(totals.tax_amount, "BT-110", problems)
         inclusive = _decimal(totals.tax_inclusive_amount, "BT-112", problems)
+        prepaid = _decimal(totals.prepaid_amount, "BT-113", problems, Decimal("0"))
+        rounding = _decimal(
+            totals.payable_rounding_amount,
+            "BT-114",
+            problems,
+            Decimal("0"),
+        )
+        payable = _decimal(totals.payable_amount, "BT-115", problems)
         if None not in (line_total, allowance, charge, exclusive):
             try:
                 expected_exclusive = _round(line_total - allowance + charge)
@@ -239,6 +272,15 @@ def validate_vat_and_totals(invoice: CanonicalInvoice) -> CheckResult:
                     problems.append(f"BT-112 {inclusive} != BT-109 + BT-110 ({expected_inclusive}).")
             except DecimalException:
                 problems.append("BT-112 arithmetic exceeds supported decimal bounds.")
+        if None not in (inclusive, prepaid, rounding, payable):
+            try:
+                expected_payable = _round(inclusive - prepaid + rounding)
+                if payable != expected_payable:
+                    problems.append(
+                        f"BT-115 {payable} != BT-112 - BT-113 + BT-114 ({expected_payable})."
+                    )
+            except DecimalException:
+                problems.append("BT-115 arithmetic exceeds supported decimal bounds.")
     if problems:
         return failed("MVP-VAT-TOTAL-001", "VAT or document totals failed selected checks.", problems)
     return passed("MVP-VAT-TOTAL-001", "Standard VAT breakdown and document totals reconcile.")

@@ -56,6 +56,17 @@ class FieldValidatorTests(unittest.TestCase):
                 result = validate_invoice_type(standard_invoice(invoice_type_code=type_code, transaction_code=transaction_code))
                 self.assertIs(result.status, expected)
 
+    def test_frozen_profile_rejects_non_sar_currency(self) -> None:
+        for field, invoice in (
+            ("document", standard_invoice(document_currency_code="USD")),
+            ("tax", standard_invoice(tax_currency_code="USD")),
+            ("missing_document", standard_invoice(document_currency_code=None)),
+        ):
+            with self.subTest(field=field):
+                result = validate_invoice_type(invoice)
+                self.assertIs(result.status, CheckStatus.FAIL)
+                self.assertTrue(any("SAR" in detail for detail in result.details))
+
     def test_seller_accepts_selected_vat_format(self) -> None:
         self.assertIs(validate_seller(standard_invoice()).status, CheckStatus.PASS)
 
@@ -149,6 +160,29 @@ class VatAndTotalsValidatorTests(unittest.TestCase):
         self.assertIs(result.status, CheckStatus.FAIL)
         self.assertTrue(any("expected" in detail for detail in result.details))
 
+    def test_frozen_profile_rejects_zero_or_nonstandard_vat_rate(self) -> None:
+        cases = (
+            standard_invoice(
+                lines=(standard_line(vat_rate="0"),),
+                vat_breakdowns=(standard_breakdown(rate="0", tax_amount="0.00"),),
+                totals=standard_totals(tax_amount="0.00", tax_inclusive_amount="100.00"),
+            ),
+            standard_invoice(lines=(standard_line(vat_rate="20.00"),)),
+            standard_invoice(vat_breakdowns=(standard_breakdown(rate="20.00", tax_amount="20.00"),)),
+        )
+        for invoice in cases:
+            with self.subTest(invoice=invoice):
+                result = validate_vat_and_totals(invoice)
+                self.assertIs(result.status, CheckStatus.FAIL)
+                self.assertTrue(any("rate" in detail.lower() for detail in result.details))
+
+    def test_line_vat_rate_must_match_frozen_standard_rate(self) -> None:
+        result = validate_vat_and_totals(
+            standard_invoice(lines=(standard_line(vat_rate="20.00"),))
+        )
+        self.assertIs(result.status, CheckStatus.FAIL)
+        self.assertTrue(any("line 1 VAT rate" in detail for detail in result.details))
+
     def test_non_standard_category_fails_frozen_profile(self) -> None:
         result = validate_vat_and_totals(standard_invoice(vat_breakdowns=(standard_breakdown(category_code="Z"),)))
         self.assertIs(result.status, CheckStatus.FAIL)
@@ -181,10 +215,29 @@ class VatAndTotalsValidatorTests(unittest.TestCase):
             standard_totals(tax_exclusive_amount="99.00", tax_inclusive_amount="114.00"),
             standard_totals(tax_amount="14.00", tax_inclusive_amount="114.00"),
             standard_totals(tax_inclusive_amount="114.00"),
+            standard_totals(payable_amount="1.00"),
         )
         for totals in cases:
             with self.subTest(totals=totals):
                 self.assertIs(validate_vat_and_totals(standard_invoice(totals=totals)).status, CheckStatus.FAIL)
+
+    def test_bt_115_accounts_for_prepaid_and_rounding_amounts(self) -> None:
+        totals = standard_totals(
+            prepaid_amount="10.00",
+            payable_rounding_amount="0.05",
+            payable_amount="105.05",
+        )
+        result = validate_vat_and_totals(standard_invoice(totals=totals))
+        self.assertIs(result.status, CheckStatus.PASS)
+
+        wrong = standard_totals(
+            prepaid_amount="10.00",
+            payable_rounding_amount="0.05",
+            payable_amount="115.00",
+        )
+        result = validate_vat_and_totals(standard_invoice(totals=wrong))
+        self.assertIs(result.status, CheckStatus.FAIL)
+        self.assertTrue(any("BT-115" in detail for detail in result.details))
 
     def test_invalid_and_non_finite_money_fail_without_crashing(self) -> None:
         for value in ("abc", "NaN", "Infinity", "-Infinity", "1E+999999"):
