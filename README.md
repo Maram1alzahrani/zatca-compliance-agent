@@ -148,7 +148,7 @@ The Final Test runner was executed once on 32 held-out synthetic invoices. It fr
 
 These perfect results establish **internal consistency only** within the declared synthetic generator family. Development, Validation, and Final Test share the same schema, rule definitions, and mutation families; the split therefore tests repeatability across held-out generated cases rather than real-world generalization. Exact rule lookup and deterministic workflow execution are integration checks, not semantic-retrieval or autonomous-agent benchmarks. The evaluation does not demonstrate robustness to independently authored invoices, complete ZATCA coverage, or live-LLM reliability. Grounding was checked structurally, not by human semantic adjudication.
 
-Full protocol, per-rule results, confusion matrix, hashes, and the preserved presentation-only reporting defect are documented in [`docs/phase_13_final_unseen_evaluation.md`](docs/phase_13_final_unseen_evaluation.md).
+Full protocol, per-rule results, confusion matrix, hashes, and the preserved presentation-only reporting defect are documented in [`docs/phase_13_final_unseen_evaluation.md`](docs/phase_13_final_unseen_evaluation.md). A corrected presentation-only companion is available at [`evaluation/results/phase_13_final_test_corrected.md`](evaluation/results/phase_13_final_test_corrected.md), while the original sealed artifacts remain unchanged.
 
 ## Run the demo
 
@@ -259,5 +259,5 @@ The strongest permitted conclusion is:
 
 > Passed the selected checks implemented in this proof of concept.
 
-For research or stronger external validation, the next milestone is an independently authored benchmark or comparison against official ZATCA SDK/reference fixtures. The sealed synthetic results should not be used as evidence of real-world compliance accuracy.
+For research or stronger external validation, the next milestone is an independently authored benchmark or comparison against official ZATCA SDK/reference fixtures. The protocol is defined in [`docs/external_validation_protocol.md`](docs/external_validation_protocol.md). The sealed synthetic results should not be used as evidence of real-world compliance accuracy.
 
