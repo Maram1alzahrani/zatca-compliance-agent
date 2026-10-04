@@ -387,7 +387,10 @@ def render_markdown(result: dict) -> str:
     lines = [
         f"# Phase {result['phase']} Evaluation Results",
         "",
-        f"Evaluated splits: {', '.join(result['evaluated_splits'])}. Final Test accessed: **No**.",
+        (
+            f"Evaluated splits: {', '.join(result['evaluated_splits'])}. "
+            f"Final Test accessed: **{'Yes' if result['final_test_accessed'] else 'No'}**."
+        ),
         "",
         "## Aggregate metrics",
         "",
@@ -398,12 +401,12 @@ def render_markdown(result: dict) -> str:
         f"| Detection recall | {detection['micro']['recall']:.4f} |",
         f"| Detection F1 | {detection['micro']['f1']:.4f} |",
         f"| Exact rule-set accuracy | {detection['exact_rule_set_accuracy']:.4f} |",
-        f"| Rule retrieval accuracy | {aggregate['rule_retrieval']['accuracy']:.4f} |",
-        f"| Explanation grounded rate | {aggregate['explanation_grounding']['grounded_rate']:.4f} |",
+        f"| Exact rule-evidence lookup consistency | {aggregate['rule_retrieval']['accuracy']:.4f} |",
+        f"| Structural evidence-contract consistency | {aggregate['explanation_grounding']['grounded_rate']:.4f} |",
         f"| Correction eligibility F1 | {correction['eligibility_confusion']['f1']:.4f} |",
         f"| Correction success rate | {correction['correction_success_rate']:.4f} |",
         f"| Re-validation pass rate | {correction['revalidation_pass_rate']:.4f} |",
-        f"| Tool-selection success rate | {reliability['tool_selection_success_rate']:.4f} |",
+        f"| Deterministic workflow execution success | {reliability['tool_selection_success_rate']:.4f} |",
         f"| Invalid tool calls | {reliability['invalid_tool_calls']} |",
         f"| Unsupported claim rate | {aggregate['explanation_grounding']['unsupported_claim_rate']:.4f} |",
         "",
@@ -438,7 +441,11 @@ def render_markdown(result: dict) -> str:
         for category, count in aggregate["error_breakdown"]["counts"].items():
             lines.append(f"- {category}: {count}")
     else:
-        lines.append("No errors were observed on the evaluated Development and Validation cases.")
+        lines.append(
+            "No evaluation-pipeline errors were observed on the evaluated "
+            + ", ".join(result["evaluated_splits"])
+            + " cases."
+        )
     lines.extend(
         [
             "",
