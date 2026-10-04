@@ -15,6 +15,7 @@ def standard_line(
     charge_amount: str | None = "0.00",
     net_amount: str | None = "100.00",
     vat_category_code: str | None = "S",
+    vat_rate: str | None = "15.00",
 ) -> InvoiceLine:
     return InvoiceLine(
         line_id=line_id,
@@ -27,7 +28,7 @@ def standard_line(
         charge_amount=charge_amount,
         net_amount=net_amount,
         vat_category_code=vat_category_code,
-        vat_rate="15.00",
+        vat_rate=vat_rate,
     )
 
 
@@ -54,6 +55,9 @@ def standard_totals(
     tax_exclusive_amount: str | None = "100.00",
     tax_amount: str | None = "15.00",
     tax_inclusive_amount: str | None = "115.00",
+    prepaid_amount: str | None = "0.00",
+    payable_rounding_amount: str | None = None,
+    payable_amount: str | None = None,
 ) -> InvoiceTotals:
     return InvoiceTotals(
         line_extension_amount=line_extension_amount,
@@ -62,8 +66,9 @@ def standard_totals(
         tax_exclusive_amount=tax_exclusive_amount,
         tax_amount=tax_amount,
         tax_inclusive_amount=tax_inclusive_amount,
-        prepaid_amount="0.00",
-        payable_amount=tax_inclusive_amount,
+        prepaid_amount=prepaid_amount,
+        payable_rounding_amount=payable_rounding_amount,
+        payable_amount=tax_inclusive_amount if payable_amount is None else payable_amount,
     )
 
 
@@ -73,6 +78,8 @@ def standard_invoice(
     issue_date: str | None = "2026-09-01",
     invoice_type_code: str | None = "388",
     transaction_code: str | None = "0100000",
+    document_currency_code: str | None = "SAR",
+    tax_currency_code: str | None = "SAR",
     seller: InvoiceParty | None = InvoiceParty("Synthetic Seller LLC", "310000000000003"),
     buyer: InvoiceParty | None = InvoiceParty("Synthetic Buyer LLC", "310000000000013"),
     lines: tuple[InvoiceLine, ...] | None = None,
@@ -84,8 +91,8 @@ def standard_invoice(
         issue_date=issue_date,
         invoice_type_code=invoice_type_code,
         transaction_code=transaction_code,
-        document_currency_code="SAR",
-        tax_currency_code="SAR",
+        document_currency_code=document_currency_code,
+        tax_currency_code=tax_currency_code,
         seller=seller,
         buyer=buyer,
         lines=(standard_line(),) if lines is None else lines,
