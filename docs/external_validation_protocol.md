@@ -2,9 +2,7 @@
 
 ## Objective
 
-Move the project from self-consistency testing to **independent validation**.
-
-The existing synthetic benchmark is useful for regression testing, but it is generated from the same rule and mutation families used by the implementation. External evaluation must therefore use invoice fixtures whose validity or expected errors were not defined by this repository.
+Define a reproducible protocol for comparing the POC with independently sourced ZATCA/reference invoice fixtures while keeping provenance, labels, and implementation boundaries explicit.
 
 ## Primary benchmark source
 
@@ -65,8 +63,6 @@ Maintain explicit regression tests for previously uncovered frozen-profile failu
 - incorrect BT-115 PayableAmount,
 - future additions discovered during external-oracle comparison.
 
-## Success criterion
+## Reporting principle
 
-The next portfolio-quality milestone is not another perfect synthetic score.
-
-It is a documented comparison against an **independent oracle**, including failures and error analysis. A non-perfect result with transparent failure categories is more informative than 1.0000 on a self-generated distribution.
+Report agreement and disagreement cases transparently, with error analysis and provenance for every external fixture. Keep SDK/reference results separate from the POC's own selected-check results.
